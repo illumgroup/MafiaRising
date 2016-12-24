@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="@dimen/checkbox_width"
+        android:height="@dimen/checkbox_height">
+
+        <bitmap android:src="@drawable/box_filledprint"/>
+
+    </item>
+
+</layer-list>
