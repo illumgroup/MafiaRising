@@ -9,53 +9,57 @@ import android.widget.Toast;
 public class MainMenu extends AppCompatActivity {
 
     private static int backButtonCount = 0;
+    Toast toastExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        View decorView = getWindow().getDecorView(); //set to fullscreen
+        View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        );
     }
 
 
     public void startGame(View view)
     {
+        backButtonCount = 0;
         //startActivity(new Intent(MainMenu.this, Players_Setup.class));
     }
 
     public void continueGame(View view)
     {
+        backButtonCount = 0;
 
-    }
-
-    /*public void settingsPage(View view)
-    {
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.putString("Test", "Testing Shared Preferences");
-        editor.commit();
-        startActivity(new Intent(MainMenu.this, Options.class)); //open settings menu - settings button onClick
     }
 
     public void activityOptions(View view)
     {
+        backButtonCount = 0;
+        /*
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("Test", "Testing Shared Preferences");
+        editor.commit();
+        */
         Intent intent = new Intent(this, Options.class);
         startActivity(intent);
     }
 
     public void activityRules(View view)
     {
+        backButtonCount = 0;
         Intent intent = new Intent(this, Rules.class);
         startActivity(intent);
     }
 
+    /*
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -105,14 +109,13 @@ public class MainMenu extends AppCompatActivity {
     public void onBackPressed() { //override back button
         if(backButtonCount >= 1)
         {
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            if (toastExit != null) toastExit.cancel();
+            super.onBackPressed();
         }
         else
         {
-            Toast.makeText(this, R.string.mm_back_toast, Toast.LENGTH_SHORT).show();
+            toastExit = Toast.makeText(this, R.string.mm_back_toast, Toast.LENGTH_SHORT);
+            toastExit.show();
             backButtonCount++;
         }
     }
