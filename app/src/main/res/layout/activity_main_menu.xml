@@ -24,7 +24,7 @@
             android:layout_weight="4.5">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:src="@drawable/mm_logo"/>
@@ -68,7 +68,7 @@
             android:layout_weight="1">
 
             <ImageButton
-                android:id="@+id/btn2"
+                android:id="@+id/btn_continue"
                 android:onClick="continueGame"
                 android:paddingStart="-2dp"
                 android:paddingEnd="-2dp"
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"/>
 
             <com.illum.MafiaRising.CustomFontTextView
-                android:id="@+id/btn2_text"
+                android:id="@+id/btn_continue_text"
                 android:text="@string/mm_btn2"
                 android:textSize="40sp"
                 app:font="@string/font_name_kefa"
@@ -87,7 +87,7 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_alignEnd="@+id/btn2"
+                android:layout_alignEnd="@+id/btn_continue"
                 android:layout_marginEnd="70dp"
                 android:layout_centerVertical="true"/>
 
@@ -99,7 +99,7 @@
             android:layout_weight="1">
 
             <ImageButton
-                android:id="@+id/btn3"
+                android:id="@+id/btn_options"
                 android:onClick="activityOptions"
                 android:paddingStart="-2dp"
                 android:paddingEnd="-2dp"
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"/>
 
             <com.illum.MafiaRising.CustomFontTextView
-                android:id="@+id/btn3_text"
+                android:id="@+id/btn_options_text"
                 android:text="@string/mm_btn3"
                 android:textSize="40sp"
                 app:font="@string/font_name_kefa"
@@ -118,7 +118,7 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_alignEnd="@+id/btn3"
+                android:layout_alignEnd="@+id/btn_options"
                 android:layout_marginEnd="70dp"
                 android:layout_centerVertical="true"/>
 
@@ -130,7 +130,7 @@
             android:layout_weight="1">
 
             <ImageButton
-                android:id="@+id/btn4"
+                android:id="@+id/btn_rules"
                 android:onClick="activityRules"
                 android:paddingStart="-2dp"
                 android:paddingEnd="-2dp"
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"/>
 
             <com.illum.MafiaRising.CustomFontTextView
-                android:id="@+id/btn4_text"
+                android:id="@+id/btn_rules_text"
                 android:text="@string/mm_btn4"
                 android:textSize="40sp"
                 app:font="@string/font_name_kefa"
@@ -149,7 +149,7 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_alignEnd="@+id/btn4"
+                android:layout_alignEnd="@+id/btn_rules"
                 android:layout_marginEnd="70dp"
                 android:layout_centerVertical="true"/>
 
@@ -166,7 +166,8 @@
                 android:textSize="40sp"
                 app:font="@string/font_name_kefa"
                 android:textColor="@color/white"
-                android:gravity="center"
+                android:gravity="center_vertical|end"
+                android:paddingEnd="90dp"
                 android:paddingStart="-2dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/mm_btn_bkgd"
@@ -187,7 +188,8 @@
                 android:textSize="40sp"
                 app:font="@string/font_name_kefa"
                 android:textColor="@color/white"
-                android:gravity="center"
+                android:gravity="center_vertical|end"
+                android:paddingEnd="90dp"
                 android:paddingStart="-2dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/mm_btn_bkgd"
@@ -209,7 +211,8 @@
                 android:textSize="40sp"
                 app:font="@string/font_name_kefa"
                 android:textColor="@color/white"
-                android:gravity="center"
+                android:gravity="center_vertical|end"
+                android:paddingEnd="90dp"
                 android:paddingStart="-2dp"
                 android:layout_marginEnd="40dp"
                 style="?android:attr/borderlessButtonStyle"
@@ -231,7 +234,8 @@
                 android:textSize="40sp"
                 app:font="@string/font_name_kefa"
                 android:textColor="@color/white"
-                android:gravity="center"
+                android:gravity="center_vertical|end"
+                android:paddingEnd="90dp"
                 android:paddingStart="-2dp"
                 android:layout_marginEnd="40dp"
                 style="?android:attr/borderlessButtonStyle"

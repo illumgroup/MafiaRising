@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Rules extends BaseActivity {
+public class RulesScript extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rules);
+        setContentView(R.layout.activity_rules_script);
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -21,20 +21,4 @@ public class Rules extends BaseActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         );
     }
-
-    public void activityTutorial(View view) {
-        Intent intent = new Intent(this, RulesTutorial.class);
-        startActivity(intent);
-    }
-
-    public void activityScript(View view) {
-        Intent intent = new Intent(this, RulesScript.class);
-        startActivity(intent);
-    }
-
-    public void activityRoles(View view) {
-        Intent intent = new Intent(this, RulesRoles.class);
-        startActivity(intent);
-    }
-
 }

@@ -16,7 +16,7 @@
         android:text="PLAYERS"
         android:textSize="50sp"
         android:layout_centerHorizontal="true"
-        android:textColor="#cc0000"
+        android:textColor="@color/red"
         android:paddingBottom="60dp"
         android:id="@+id/players"/>
 

@@ -19,6 +19,9 @@
         <activity android:name=".Options" />
         <activity android:name=".OptionsInfo" />
         <activity android:name=".Rules" />
+        <activity android:name=".RulesTutorial" />
+        <activity android:name=".RulesScript" />
+        <activity android:name=".RulesRoles" />
     </application>
 
 </manifest>

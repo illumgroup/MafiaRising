@@ -28,7 +28,7 @@
                 android:id="@+id/title"
                 android:text="@string/options_title"
                 android:textSize="50sp"
-                android:textColor="#cc0000"
+                android:textColor="@color/red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -71,6 +71,7 @@
                     android:id="@+id/computer_text"
                     android:text="@string/options_computer"
                     android:textSize="40sp"
+                    android:textColor="@color/grey"
                     app:font="@string/font_name_kefa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -85,7 +86,7 @@
                     <CheckBox
                         android:id="@+id/directions_checkbox"
                         android:button="@drawable/checkbox"
-                        android:checked="true"
+                        android:checked="false"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -93,6 +94,7 @@
                         android:id="@+id/directions_text"
                         android:text="@string/options_directions"
                         android:textSize="35sp"
+                        android:textColor="@color/grey"
                         app:font="@string/font_name_kefa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -119,6 +121,7 @@
                         android:id="@+id/story_text"
                         android:text="@string/options_story"
                         android:textSize="35sp"
+                        android:textColor="@color/grey"
                         app:font="@string/font_name_kefa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -140,6 +143,7 @@
                     android:id="@+id/sfx_text"
                     android:text="@string/options_sfx"
                     android:textSize="40sp"
+                    android:textColor="@color/grey"
                     app:font="@string/font_name_kefa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -170,6 +174,7 @@
                     android:id="@+id/music_text"
                     android:text="@string/options_music"
                     android:textSize="40sp"
+                    android:textColor="@color/grey"
                     app:font="@string/font_name_kefa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

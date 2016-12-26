@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/bkgd_grunge"
-    tools:context=".PauseRoles">
+    tools:context=".RulesScript">
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -24,9 +24,9 @@
 
             <include layout="@layout/reusable_back_btn"/>
 
-            <com.simplex.simplelight.MafiaRising.CustomFontTextView
+            <com.illum.MafiaRising.CustomFontTextView
                 android:id="@+id/title"
-                android:text="@string/pauseroles_title"
+                android:text="@string/rules_script_title"
                 android:textSize="50sp"
                 android:textColor="@color/red"
                 android:layout_width="wrap_content"
@@ -47,17 +47,6 @@
 
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/roles_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/header"
-        android:layout_marginTop="10dp"
-        android:divider="@color/transparent"
-        android:dividerHeight="5dp"
-        android:fadeScrollbars="false"
-        android:verticalScrollbarPosition="left">
 
-    </ListView>
 
 </RelativeLayout>

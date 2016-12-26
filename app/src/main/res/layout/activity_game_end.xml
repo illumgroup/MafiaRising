@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     tools:context=".GameEnd">
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:id="@+id/text"
             android:text="\nWIN"
             android:textSize="50sp"
-            android:textColor="#cc0000"
+            android:textColor="@color/red"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -46,7 +46,7 @@
         android:id="@+id/hint_text"
         android:text="@string/hint_taptocontinue"
         android:textSize="24sp"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
