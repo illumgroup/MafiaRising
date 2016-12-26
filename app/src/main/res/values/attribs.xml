@@ -5,6 +5,9 @@
         <attr name="textStyle" format="string"/>
     </declare-styleable>
     <declare-styleable name="BidirectionalViewPager">
-        <attr name="swipeDirection" format="string" />
+        <attr name="pagerSwipeDirection" format="string" />
+    </declare-styleable>
+    <declare-styleable name="BidirectionalViewPage">
+        <attr name="pageSwipeDirection" format="string" />
     </declare-styleable>
 </resources>

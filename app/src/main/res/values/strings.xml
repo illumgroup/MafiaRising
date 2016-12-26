@@ -20,14 +20,34 @@
     <string name="rules_roles_title">ROLES</string>
 
     <string-array name="tutorial_slide_titles">
-        <item></item>
+        <item>INTRO</item>
+        <item>CONCEPT</item>
+        <item>GOAL</item>
+        <item>SET-UP</item>
+        <item>SET-UP 1</item>
+        <item>SET-UP 2</item>
+        <item>SET-UP 3</item>
+        <item>STORY</item>
+        <item>NIGHT</item>
     </string-array>
     <string-array name="tutorial_slide_swipedir">
-        <item></item>
+        <item>@string/swipe_direction_horizontal</item>
+        <item>@string/swipe_direction_horizontal</item>
+        <item>@string/swipe_direction_horizontal</item>
+        <item>@string/swipe_direction_vertical</item>
+        <item>@string/swipe_direction_vertical</item>
+        <item>@string/swipe_direction_vertical</item>
+        <item>@string/swipe_direction_vertical</item>
+        <item>@string/swipe_direction_horizontal</item>
+        <item>@string/swipe_direction_horizontal</item>
+        <item>@string/swipe_direction_horizontal</item>
     </string-array>
     <string-array name="tutorial_slide_content">
-        <item></item>
+        <item>NEW TO MAFIA?\nNO WORRIES...\nSWIPE RIGHT TO LEARN MORE</item>
     </string-array>
+
+    <string name="swipe_direction_vertical">vertical</string>
+    <string name="swipe_direction_horizontal">horizontal</string>
 
     <string name="role_name_citizen">CITIZEN</string>
     <string name="role_name_doctor">DOCTOR</string>
