@@ -15,16 +15,30 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class RulesTutorial extends FragmentActivity {
+    String[] tutorialTitles;
+    String[] tutorialContent;
     RulesTutorialPagerAdapter adapter;
-    ViewPager pager;
+    BidirectionalViewPager pager;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
 
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        );
+
         adapter = new RulesTutorialPagerAdapter(getSupportFragmentManager());
-        pager = (ViewPager) findViewById(R.id.tutorial_pager);
+        pager = (BidirectionalViewPager) findViewById(R.id.tutorial_pager);
         pager.setAdapter(adapter);
+        tutorialTitles = getResources().getStringArray(R.array.tutorial_slide_titles);
+        tutorialContent = getResources().getStringArray(R.array.tutorial_slide_content);
     }
 
     public class RulesTutorialPagerAdapter extends FragmentStatePagerAdapter {

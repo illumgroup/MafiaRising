@@ -4,4 +4,7 @@
         <attr name="font" format="string"/>
         <attr name="textStyle" format="string"/>
     </declare-styleable>
+    <declare-styleable name="BidirectionalViewPager">
+        <attr name="swipeDirection" format="string" />
+    </declare-styleable>
 </resources>
