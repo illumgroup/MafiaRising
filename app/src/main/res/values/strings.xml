@@ -46,9 +46,9 @@
     <string-array name="tutorial_slide_swipedir">
     </string-array>
     <string-array name="tutorial_slide_content">
-        <item>layout:1`|testSize:60dp`|textColor:white`|text:SWIPE RIGHT TO LEARN MORE</item>
-        <item>layout:1`|testSize:60dp`|textColor:white`|text:NEW TO MAFIA?</item>
-        <item>layout:1`|testSize:60dp`|textColor:white`|text:NEW TO MAFIA SWIPE RIGHT TO LEARN MORE</item>
+        <item>layout:1`|text1Size:60`|text1Color:white`|text1:NEW TO MAFIA?\n\nNO WORRIES&#8230;\n\nSWIPE RIGHT TO LEARN MORE</item>
+        <item>layout:1`|text1Size:16`|text1Color:white`|text1:YOU AND YOUR PARTY LIVE IN A TOWN. EVERY NIGHT THE BAD GUY(S) AKA THE MAFIA TERRORIZES THE CITIZENS OF THE TOWN. DURING THE DAY, THE CITIZENS STRUGGLE TO FIND AND KILL THE MAFIA\n\nBEFORE IT\'S TOO LATE&#8230;</item>
+        <item>layout:2`|text1Size:60`|text1Color:red`|text1:MAFIA:\nOUTNUMBER THE CITIZENS`|text2Size:60`|text2Color:black`|text2:CITIZENS:\nKILL THE MAFIA</item>
     </string-array>
 
     <string name="swipe_direction_vertical">vertical</string>

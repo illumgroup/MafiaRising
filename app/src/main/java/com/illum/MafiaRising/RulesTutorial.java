@@ -1,16 +1,20 @@
 package com.illum.MafiaRising;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.regex.Pattern;
 
@@ -76,7 +80,7 @@ public class RulesTutorial extends FragmentActivity {
         @Override
         public int getCount() {
             int len = tutorialTitlesLen;
-            int[] lengths = {tutorialTitlesLen,3};//,tutorialContentLen};
+            int[] lengths = {tutorialTitlesLen,tutorialContentLen};
             for (int i: lengths) {
                 if(i < len) len = i;
             }
@@ -99,6 +103,7 @@ public class RulesTutorial extends FragmentActivity {
             }
 
             View rootView = inflater.inflate(R.layout.fragment_tutorial_slide, container, false);
+            Context context = rootView.getContext();
             Bundle args = getArguments();
             int curSlide = args.getInt(SLIDE_NUM);
 
@@ -118,57 +123,79 @@ public class RulesTutorial extends FragmentActivity {
             //2. 2 textviews, linearlayout, 1/2 n 1/2, can change text color
             //3. 1 drawable, 1 textview, linearlayout, 7/10
             int contentLayout = 1;
-            String text = "a", textSize = "", textColor = "", font = "", gravity = "";
+            String text1 = "", text1Size = "0sp", text1Color = "#FFFFFF", text1font = "", text1gravity = "center";
+            String text2 = "", text2Size = "0sp", text2Color = "#FFFFFF", text2font = "", text2gravity = "center";
             String[] contentAttribsUnparsed = tutorialContent[curSlide].split(Pattern.quote("`|"));
             Log.i("INFO","START "+Integer.toString(curSlide));
             for (String contentAttribUnparsed: contentAttribsUnparsed) {
-                Log.i("INFO","unparsed: "+contentAttribUnparsed);
-                String[] contentAttrib = contentAttribUnparsed.split(Pattern.quote(":"));
-                Log.i("INFO","attrib0: "+contentAttrib[0]);
-                Log.i("INFO","attrib1: "+contentAttrib[1]);
+                //Log.i("INFO","unparsed: "+contentAttribUnparsed);
+                String[] contentAttrib = contentAttribUnparsed.split(Pattern.quote(":"),2);
+                //Log.i("INFO","attrib0: "+contentAttrib[0]);
+                //Log.i("INFO","attrib1: "+contentAttrib[1]);
                 switch (contentAttrib[0]) {
                     case "layout":
                         contentLayout = Integer.parseInt(contentAttrib[1]);
                         break;
-                    case "text":
-                        text = contentAttrib[1];
+                    case "text1":
+                        text1 = contentAttrib[1];
                         break;
-                    case "textSize":
-                        textSize = contentAttrib[1];
+                    case "text1Size":
+                        text1Size = contentAttrib[1];
                         break;
-                    case "textColor":
-                        textColor = contentAttrib[1];
+                    case "text1Color":
+                        text1Color = contentAttrib[1];
                         break;
-                    case "font":
-                        font = contentAttrib[1];
+                    case "text1font":
+                        text1font = contentAttrib[1];
                         break;
-                    case "gravity":
-                        gravity = contentAttrib[1];
+                    case "text1gravity":
+                        text1gravity = contentAttrib[1];
+                        break;
+                    case "text2":
+                        text2 = contentAttrib[1];
+                        break;
+                    case "text2Size":
+                        text2Size = contentAttrib[1];
+                        break;
+                    case "text2Color":
+                        text2Color = contentAttrib[1];
+                        break;
+                    case "text2font":
+                        text2font = contentAttrib[1];
+                        break;
+                    case "text2gravity":
+                        text2gravity = contentAttrib[1];
                         break;
                 }
-                contentAttrib = new String[] {};
             }
-            Log.i("INFO","text: "+text);
+
             ViewGroup contentStub = (ViewGroup) slide.findViewById(R.id.content);
-            //ViewStub contentStub = (ViewStub) slide.findViewById(R.id.content);
             View content = null;
             if(contentLayout == 1) {
                 content = inflater.inflate(R.layout.fragment_tutorial_content_1,contentStub,false);
-                //contentStub.setLayoutResource(R.layout.fragment_tutorial_content_1);
-                //contentStub.inflate();
-                //View content = (View) contentStub.findViewById(R.id.content_layout);
-                Log.i("INFO","contentclass: "+content.getClass());
-                Log.i("INFO","textviewclass: "+content.findViewById(R.id.text_1).getClass());
+
                 TextView contentText1 = (TextView) content.findViewById(R.id.text_1);
-                Log.i("INFO","textview: "+contentText1);
-                contentText1.setText(text);
+                contentText1.setText(text1);
+                contentText1.setTextSize(Integer.parseInt(text1Size));
+                contentText1.setTextColor(Color.parseColor(getResources().getString(getResources().getIdentifier(text1Color,"color",context.getPackageName()))));
+                //contentText1.setGravity(text1gravity);
             }
-            /*else if(contentLayout == 2) {
-                content.setLayoutResource(R.layout.fragment_tutorial_content_2);
+            else if(contentLayout == 2) {
+                content = inflater.inflate(R.layout.fragment_tutorial_content_2,contentStub,false);
+
+                TextView contentText1 = (TextView) content.findViewById(R.id.text_1);
+                contentText1.setText(text1);
+                contentText1.setTextSize(Integer.parseInt(text1Size));
+                contentText1.setTextColor(Color.parseColor(getResources().getString(getResources().getIdentifier(text1Color,"color",context.getPackageName()))));
+
+                TextView contentText2 = (TextView) content.findViewById(R.id.text_2);
+                contentText2.setText(text2);
+                contentText2.setTextSize(Integer.parseInt(text2Size));
+                contentText2.setTextColor(Color.parseColor(getResources().getString(getResources().getIdentifier(text2Color,"color",context.getPackageName()))));
             }
             else if(contentLayout == 3) {
-                content.setLayoutResource(R.layout.fragment_tutorial_content_3);
-            }*/
+                content = inflater.inflate(R.layout.fragment_tutorial_content_3,contentStub,false);
+            }
 
             contentStub.addView(content);
 
