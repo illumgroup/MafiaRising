@@ -29,21 +29,26 @@
         <item>SET-UP 3</item>
         <item>STORY</item>
         <item>NIGHT</item>
+        <item>NIGHT 1</item>
+        <item>NIGHT 2</item>
+        <item>NIGHT 3</item>
+        <item>TIP</item>
+        <item>NIGHT 4</item>
+        <item>DAY</item>
+        <item>DAY 1</item>
+        <item>DAY 2</item>
+        <item>END</item>
+        <item>REPEAT</item>
+        <item>GOOD LUCK!</item>
+        <item>TIP</item>
     </string-array>
+    <string name="tutorial_slide_swipedir_default">@string/swipe_direction_horizontal</string>
     <string-array name="tutorial_slide_swipedir">
-        <item>@string/swipe_direction_horizontal</item>
-        <item>@string/swipe_direction_horizontal</item>
-        <item>@string/swipe_direction_horizontal</item>
-        <item>@string/swipe_direction_vertical</item>
-        <item>@string/swipe_direction_vertical</item>
-        <item>@string/swipe_direction_vertical</item>
-        <item>@string/swipe_direction_vertical</item>
-        <item>@string/swipe_direction_horizontal</item>
-        <item>@string/swipe_direction_horizontal</item>
-        <item>@string/swipe_direction_horizontal</item>
     </string-array>
     <string-array name="tutorial_slide_content">
-        <item>NEW TO MAFIA?\nNO WORRIES...\nSWIPE RIGHT TO LEARN MORE</item>
+        <item>layout:1`|testSize:60dp`|textColor:white`|text:SWIPE RIGHT TO LEARN MORE</item>
+        <item>layout:1`|testSize:60dp`|textColor:white`|text:NEW TO MAFIA?</item>
+        <item>layout:1`|testSize:60dp`|textColor:white`|text:NEW TO MAFIA SWIPE RIGHT TO LEARN MORE</item>
     </string-array>
 
     <string name="swipe_direction_vertical">vertical</string>

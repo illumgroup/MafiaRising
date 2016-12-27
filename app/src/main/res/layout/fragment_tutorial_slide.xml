@@ -18,19 +18,9 @@
         android:background="@color/white"
         android:id="@+id/header"
         android:layout_weight=".2">
-        <TextView
+        <com.illum.MafiaRising.CustomFontTextView
             android:id="@+id/title"
-            android:text="Hello"
-            android:textSize="60sp"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/activity_horizontal_margin"
-            android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:layout_centerVertical="true"/>
-        <!--<com.illum.MafiaRising.CustomFontTextView
-            android:id="@+id/title"
-            android:text="Hello"
+            android:text=""
             android:textSize="60sp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
@@ -38,17 +28,18 @@
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
             app:font="@string/font_name_kefa"
-            android:layout_centerVertical="true"/>-->
+            android:layout_centerVertical="true"/>
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/black"
+        android:background="@color/grey"
         android:id="@+id/content"
         android:layout_weight="0.8">
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </com.illum.MafiaRising.BidirectionalViewPage>
