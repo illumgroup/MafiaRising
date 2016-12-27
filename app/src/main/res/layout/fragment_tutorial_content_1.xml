@@ -6,11 +6,12 @@
     android:background="@color/black"
     android:id="@+id/content_layout">
 
-    <TextView
+    <com.illum.MafiaRising.CustomFontTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text=""
         android:gravity="center_vertical"
+        android:text=""
+        app:font=""
         android:textColor="@color/white"
         android:textSize="40sp"
         android:id="@+id/text_1"/>

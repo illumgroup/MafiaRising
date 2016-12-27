@@ -30,9 +30,9 @@ public class CustomFontUtils {
         attribArray.recycle();
     }
 
-    private static Typeface selectTypeface(Context context, String fontName, int textStyle)
+    public static Typeface selectTypeface(Context context, String fontName, int textStyle)
     {
-        if(fontName.contentEquals(context.getString(R.string.font_name_kefa)))
+        if(fontName != null && fontName.contentEquals(context.getString(R.string.font_name_kefa)))
         {
             switch(textStyle)
             {
@@ -49,7 +49,7 @@ public class CustomFontUtils {
         }
         else
         {
-            return null;
+            return Typeface.DEFAULT;
         }
     }
 }
