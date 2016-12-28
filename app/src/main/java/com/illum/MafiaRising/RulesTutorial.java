@@ -125,8 +125,9 @@ public class RulesTutorial extends FragmentActivity {
             //2. 2 textviews, linearlayout, 1/2 n 1/2, can change text color
             //3. 1 drawable, 1 textview, linearlayout, 7/10
             int contentLayout = 1;
-            String text1 = "", text1Size = "0sp", text1Color = "#FFFFFF", text1font = getResources().getString(R.string.font_name_kefa), text1gravity = "center";
-            String text2 = "", text2Size = "0sp", text2Color = "#FFFFFF", text2font = getResources().getString(R.string.font_name_kefa), text2gravity = "center";
+            String text1 = "", text1Size = "0", text1Color = "#FFFFFF", text1font = getResources().getString(R.string.font_name_kefa), text1gravity = "center_vertical";
+            String text2 = "", text2Size = "0", text2Color = "#FFFFFF", text2font = getResources().getString(R.string.font_name_kefa), text2gravity = "center_vertical";
+            String img1 = "placeholderbox", img1MaxWidth = "", img1MinWidth = "", img1MaxHeight = "", img1MinHeight = "", img1ScaleType = "";
             String[] contentAttribsUnparsed = tutorialContent[curSlide].split(Pattern.quote("`|"));
             Log.i("INFO","START "+Integer.toString(curSlide));
             for (String contentAttribUnparsed: contentAttribsUnparsed) {
@@ -168,6 +169,24 @@ public class RulesTutorial extends FragmentActivity {
                     case "text2gravity":
                         text2gravity = contentAttrib[1];
                         break;
+                    case "img1":
+                        img1 = contentAttrib[1];
+                        break;
+                    case "img1MaxWidth":
+                        img1MaxWidth = contentAttrib[1];
+                        break;
+                    case "img1MinWidth":
+                        img1MinWidth = contentAttrib[1];
+                        break;
+                    case "img1MaxHeight":
+                        img1MaxHeight = contentAttrib[1];
+                        break;
+                    case "img1MinHeight":
+                        img1MinHeight = contentAttrib[1];
+                        break;
+                    case "img1ScaleType":
+                        img1ScaleType = contentAttrib[1];
+                        break;
                 }
             }
 
@@ -204,6 +223,13 @@ public class RulesTutorial extends FragmentActivity {
                 content = inflater.inflate(R.layout.fragment_tutorial_content_3,contentStub,false);
 
                 ImageView contentImg1 = (ImageView) content.findViewById(R.id.content_img).findViewById(R.id.img_1);
+                contentImg1.setImageDrawable(ContextCompat.getDrawable(context,getResources().getIdentifier(img1,"drawable",context.getPackageName())));
+                final float scale = context.getResources().getDisplayMetrics().density;
+                if(!img1MaxWidth.isEmpty()) { contentImg1.setMaxWidth((int)(Integer.parseInt(img1MaxWidth)*scale+0.5f)); }
+                if(!img1MinWidth.isEmpty()) { contentImg1.setMinimumWidth((int)(Integer.parseInt(img1MinWidth)*scale+0.5f)); }
+                if(!img1MaxHeight.isEmpty()) { contentImg1.setMaxHeight((int)(Integer.parseInt(img1MaxHeight)*scale+0.5f)); }
+                if(!img1MinHeight.isEmpty()) { contentImg1.setMinimumHeight((int)(Integer.parseInt(img1MinHeight)*scale+0.5f)); }
+                if(!img1ScaleType.isEmpty()) { contentImg1.setScaleType(getScaleType(img1ScaleType)); }
 
                 CustomFontTextView contentText1 = (CustomFontTextView) content.findViewById(R.id.text_1);
                 contentText1.setText(text1);
@@ -216,6 +242,29 @@ public class RulesTutorial extends FragmentActivity {
             contentStub.addView(content);
 
             return rootView;
+        }
+    }
+
+    public static ImageView.ScaleType getScaleType(String scaleType) {
+        switch(scaleType) {
+            case "center":
+                return ImageView.ScaleType.CENTER;
+            case "center_crop":
+                return ImageView.ScaleType.CENTER_CROP;
+            case "center_inside":
+                return ImageView.ScaleType.CENTER_INSIDE;
+            case "fit_center":
+                return ImageView.ScaleType.FIT_CENTER;
+            case "fit_end":
+                return ImageView.ScaleType.FIT_END;
+            case "fit_start":
+                return ImageView.ScaleType.FIT_START;
+            case "fit_xy":
+                return ImageView.ScaleType.FIT_XY;
+            case "matrix":
+                return ImageView.ScaleType.MATRIX;
+            default:
+                return ImageView.ScaleType.FIT_CENTER;
         }
     }
 

@@ -31,9 +31,8 @@
         <item>NIGHT</item>
         <item>NIGHT 1</item>
         <item>NIGHT 2</item>
-        <item>NIGHT 3</item>
         <item>TIP</item>
-        <item>NIGHT 4</item>
+        <item>NIGHT 3</item>
         <item>DAY</item>
         <item>DAY 1</item>
         <item>DAY 2</item>
@@ -46,9 +45,26 @@
     <string-array name="tutorial_slide_swipedir">
     </string-array>
     <string-array name="tutorial_slide_content">
-        <item>layout:1`|text1Size:60`|text1Color:white`|text1:NEW TO MAFIA?\n\nNO WORRIES&#8230;\n\nSWIPE RIGHT TO LEARN MORE</item>
-        <item>layout:1`|text1Size:16`|text1Color:white`|text1:YOU AND YOUR PARTY LIVE IN A TOWN. EVERY NIGHT THE BAD GUY(S) AKA THE MAFIA TERRORIZES THE CITIZENS OF THE TOWN. DURING THE DAY, THE CITIZENS STRUGGLE TO FIND AND KILL THE MAFIA\n\nBEFORE IT\'S TOO LATE&#8230;</item>
-        <item>layout:2`|text1Size:60`|text1Color:red`|text1:MAFIA:\nOUTNUMBER THE CITIZENS`|text2Size:60`|text2Color:black`|text2:CITIZENS:\nKILL THE MAFIA</item>
+        <item>layout:1`|text1Size:40`|text1Color:white`|text1gravity:center_vertical`|text1:NEW TO MAFIA?\n\nNO WORRIES&#8230;\n\nSWIPE RIGHT TO LEARN MORE</item>
+        <item>layout:1`|text1Size:26`|text1Color:white`|text1gravity:center_vertical`|text1:YOU AND YOUR PARTY LIVE IN A TOWN. EVERY NIGHT THE BAD GUY(S) AKA THE MAFIA TERRORIZES THE CITIZENS OF THE TOWN. DURING THE DAY, THE CITIZENS STRUGGLE TO FIND AND KILL THE MAFIA\n\nBEFORE IT\'S TOO LATE&#8230;</item>
+        <item>layout:2`|text1Size:40`|text1Color:red`|text1gravity:bottom`|text1:MAFIA:\nOUTNUMBER THE CITIZENS`|text2Size:40`|text2Color:white`|text2gravity:top`|text2:CITIZENS:\nKILL THE MAFIA</item>
+        <item>layout:1`|text1Size:40`|text1Color:white`|text1gravity:center_vertical`|text1:BEFORE YOU ENTER YOUR RANDOMLY GENERATED TOWN, YOU MUST PROVIDE SOME INFORMATION</item>
+        <item>layout:3`|text1Size:36`|text1Color:white`|text1gravity:top`|text1:ENTER THE NUMBER OF PLAYERS IN YOUR PARTY`|img1:tutorial_card_c2`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:26`|text1Color:white`|text1gravity:top`|text1:USE OR DON\'T USE SPECIAL CHARACTERS IN YOUR GAME\n\nPRESS THE INFO BUTTON FOR DESCRIPTIONS`|img1:tutorial_card_c3`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:26`|text1Color:white`|text1gravity:top`|text1:PASS YOUR DEVICE TO EACH PLAYER\n\nHAVE THEM SET UP A PROFILE PICTURE AND FIND OUT THEIR ROLE`|img1:tutorial_card_c4`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:26`|text1Color:white`|text1gravity:top`|text1:LISTEN TO THE RANDOMLY GENERATED STORY TO BECOME IMMERSED IN YOUR GAME`|img1:tutorial_card_c5`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:26`|text1Color:white`|text1gravity:top`|text1:DURING THE NIGHT PHASE, EVERYONE SHOULD CLOSE THEIR EYES, EXCEPT THE MODERATOR`|img1:tutorial_card_c6`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:36`|text1Color:white`|text1gravity:top`|text1:YOUR DEVICE WILL CALL UPON THE SPECIAL CHARACTERS OF THE GAME`|img1:tutorial_card_c7`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:26`|text1Color:white`|text1gravity:top`|text1:THE SPECIFIED PERSON SHOULD OPEN THEIR EYES AND NOTIFY THE MODERATOR OF THEIR TARGET`|img1:tutorial_card_c7`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:1`|text1Size:40`|text1Color:white`|text1gravity:center_vertical`|text1:MAKE SURE NOT TO MAKE ANY NOISE, WHEN NOTIFYING THE MODERATOR OF YOUR SELECTION\n\nIT COULD BE A FATAL MISTAKE</item>
+        <item>layout:3`|text1Size:36`|text1Color:white`|text1gravity:top`|text1:MARK THE TARGET ON THE SCREEN AND CONFIRM`|img1:tutorial_card_c9`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:36`|text1Color:white`|text1gravity:top`|text1:THE NIGHT IS OVER, BUT NOW YOU MUST FACE THE DAY`|img1:tutorial_card_c10`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:36`|text1Color:white`|text1gravity:top`|text1:DISCOVER WHO WAS KILLED THE NIGHT BEFORE`|img1:tutorial_card_c11`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:3`|text1Size:22`|text1Color:white`|text1gravity:top`|text1:THE TOWN MUST EXECUTE ONE PERSON&#8230;\n\nDISCUSS AMONGST YOURSELVES, EXCLUDING THE MODERATOR WHO MUST BE KILLED`|img1:tutorial_card_c12`|img1MaxHeight:240`|img1ScaleType:fit_center</item>
+        <item>layout:2`|text1Size:40`|text1Color:white`|text1gravity:bottom`|text1:IF THE CITIZENS KILL ALL THE MAFIA(S), THE CITIZENS WIN`|text2Size:40`|text2Color:red`|text2gravity:top`|text2:IF THE MAFIA OUTNUMBER THE CITIZENS, THE MAFIA WINS</item>
+        <item>layout:1`|text1Size:40`|text1Color:white`|text1gravity:center_vertical`|text1:THE NIGHT AND DAY CYCLES WILL REPEAT, UNTIL AN END GAME SCENARIO OCCURS</item>
+        <item>layout:1`|text1Size:36`|text1Color:white`|text1gravity:center_vertical`|text1:NOW THAT YOU UNDERSTAND THE BASIC RULES OF MAFIA RISING, ENTER INTO A WORLD WHERE YOUR FRIENDS MAY NOT APPEAR AS THEY SEEM</item>
+        <item>layout:1`|text1Size:40`|text1Color:white`|text1gravity:center_vertical`|text1:BUT THEY\'RE ALSO YOUR FRIENDS, SO DON\'T BE A JERK ;) </item>
     </string-array>
 
     <string name="swipe_direction_vertical">vertical</string>

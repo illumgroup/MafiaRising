@@ -9,11 +9,13 @@
     <com.illum.MafiaRising.CustomFontTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin"
         android:gravity="center_vertical"
         android:text=""
         app:font=""
         android:textColor="@color/white"
         android:textSize="40sp"
+        android:hyphenationFrequency="none"
         android:id="@+id/text_1"/>
 
 </LinearLayout>
