@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     android:weightSum="2"
     android:id="@+id/content_layout">
 
@@ -18,7 +18,6 @@
         app:font=""
         android:textColor="@color/white"
         android:textSize="40sp"
-        android:hyphenationFrequency="none"
         android:id="@+id/text_1"/>
 
     <com.illum.MafiaRising.CustomFontTextView
@@ -31,7 +30,6 @@
         app:font=""
         android:textColor="@color/white"
         android:textSize="40sp"
-        android:hyphenationFrequency="none"
         android:id="@+id/text_2"/>
 
 </LinearLayout>
