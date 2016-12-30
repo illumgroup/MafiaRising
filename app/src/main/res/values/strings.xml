@@ -67,8 +67,6 @@
         <item>layout:1`|layoutColor:white`|text1Size:30`|text1Color:black`|text1Gravity:center_vertical`|text1:THANKS FOR PLAYING!!!</item>
     </string-array>
 
-    <string name="rules_roles_title">ROLES</string>
-
     <string-array name="tutorial_slide_titles">
         <item>INTRO</item>
         <item>CONCEPT</item>
@@ -120,6 +118,8 @@
     <string name="swipe_direction_vertical">vertical</string>
     <string name="swipe_direction_horizontal">horizontal</string>
 
+    <string name="rules_roles_title">ROLES</string>
+
     <string name="role_name_citizen">CITIZEN</string>
     <string name="role_name_doctor">DOCTOR</string>
     <string name="role_name_mafia">MAFIA</string>
@@ -127,9 +127,9 @@
     <string name="role_name_police">POLICE</string>
     <string name="role_name_vigilante">VIGILANTE</string>
 
-    <string name="role_subname_pro">PRO-TOWN</string>
-    <string name="role_subname_anti">ANTI-TOWN</string>
-    <string name="role_subname_neutral">NEUTRAL</string>
+    <string name="role_stance_pro">PRO-TOWN</string>
+    <string name="role_stance_anti">ANTI-TOWN</string>
+    <string name="role_stance_neutral">NEUTRAL</string>
 
     <string name="role_info_citizen">Citizens are the main inhabitants of the town. Unlike the other roles, citizens do not have any special powers. Their role, however, is not to be frowned upon for they have the opportunity to vote during the tribunal. During the tribunal, citizens typically make up the majority of voters.</string>
     <string name="role_info_doctor">The doctor is the healer of the party. Every round, he has a chance to protect the citizens of his city. At night, the doctor indicates to the moderator one person whom he wants to protect. If the mafia chooses a victim and the victim is protected by the doctor, the victim will survive the night. Doctors are allowed to target themselves.</string>
@@ -137,19 +137,26 @@
     <string name="role_info_moderator">The moderator creates an immersive story for the players to play in. By interacting with various characters in the game, the moderator controls the game\'s progression. Also, the moderator may add sound effects to dramatize the game experience.</string>
     <string name="role_info_police">The police\'s duty is to investigate the criminals of the town. At night, the police indicates to the moderator who he wants to suspect. If the police has correctly identified the mafia, the moderator will notify the police with a nod. If the police has not correctly identified the mafia, the moderator will notify the police with a shake of the head. During the day, the police will use the information gathered to sway public opinion to direct the public eye to the mafia without revealing himself in order to escape the murderous hand of the mafia.</string>
 
-    <string-array name="roles_name">
+    <string-array name="roles_names">
         <item>@string/role_name_citizen</item>
         <item>@string/role_name_doctor</item>
         <item>@string/role_name_mafia</item>
         <item>@string/role_name_moderator</item>
         <item>@string/role_name_police</item>
     </string-array>
-    <string-array name="roles_subname">
-        <item>@string/role_subname_pro</item>
-        <item>@string/role_subname_pro</item>
-        <item>@string/role_subname_anti</item>
-        <item>@string/role_subname_neutral</item>
-        <item>@string/role_subname_pro</item>
+    <string-array name="roles_stances">
+        <item>@string/role_stance_pro</item>
+        <item>@string/role_stance_pro</item>
+        <item>@string/role_stance_anti</item>
+        <item>@string/role_stance_neutral</item>
+        <item>@string/role_stance_pro</item>
+    </string-array>
+    <string-array name="roles_imgs">
+        <item>role_citizen</item>
+        <item>role_doctor</item>
+        <item>role_mafia</item>
+        <item>role_moderator</item>
+        <item>role_police</item>
     </string-array>
     <string-array name="roles_info">
         <item>@string/role_info_citizen</item>

@@ -38,7 +38,7 @@
 
             <com.illum.MafiaRising.CustomFontTextView
                 android:id="@+id/subtitle"
-                android:text="@string/role_subname_pro"
+                android:text="@string/role_stance_pro"
                 android:textSize="24sp"
                 android:textColor="@color/grey"
                 android:layout_width="wrap_content"

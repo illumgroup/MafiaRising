@@ -3,10 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_horizontal_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="@dimen/activity_horizontal_margin"
     android:background="@drawable/bkgd_gradient">
 
     <RelativeLayout
@@ -26,7 +23,7 @@
                 android:id="@+id/title"
                 android:text=""
                 android:textSize="40sp"
-                android:textColor="#cc0000"
+                android:textColor="@color/red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -38,7 +35,7 @@
                 android:id="@+id/subtitle"
                 android:text=""
                 android:textSize="24sp"
-                android:textColor="@android:color/tertiary_text_dark"
+                android:textColor="@color/grey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -67,6 +64,7 @@
         android:weightSum="1">
 
         <RelativeLayout
+            android:id="@+id/content_img"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.45">
@@ -84,6 +82,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/content_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5">

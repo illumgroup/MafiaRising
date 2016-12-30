@@ -53,12 +53,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header"
-        android:weightSum="@integer/layout_rulesroles_button_weightSum">
+        android:weightSum="1">
 
-        <RelativeLayout
+        <!--<RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.2">
 
             <com.illum.MafiaRising.CustomFontButton
                 android:id="@+id/btn_citizen"
@@ -78,7 +78,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.2">
 
             <com.illum.MafiaRising.CustomFontButton
                 android:id="@+id/btn_doctor"
@@ -98,7 +98,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.2">
 
             <com.illum.MafiaRising.CustomFontButton
                 android:id="@+id/btn_mafia"
@@ -118,7 +118,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.2">
 
             <com.illum.MafiaRising.CustomFontButton
                 android:id="@+id/btn_moderator"
@@ -138,7 +138,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.2">
 
             <com.illum.MafiaRising.CustomFontButton
                 android:id="@+id/btn_police"
@@ -153,7 +153,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_centerInParent="true"/>
 
-        </RelativeLayout>
+        </RelativeLayout>-->
 
     </LinearLayout>
 
