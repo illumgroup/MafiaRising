@@ -8,15 +8,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.illum.MafiaRising.GamePlay">
+    tools:context=".GamePlay">
 
-    <com.illum.MafiaRising.CustomFontTextView
+    <com.illum.MafiaRising.CustomFontButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Tmp"
+        android:text="Pause"
+        android:onClick="activityPause"
         android:textSize="30sp"
         app:font="@string/font_name_kefa"
-        android:layout_margin="140dp"
+        android:layout_margin="100dp"
         android:id="@+id/tempdisp"/>
 </RelativeLayout>

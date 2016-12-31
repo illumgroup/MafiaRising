@@ -24,7 +24,7 @@
 
             <include layout="@layout/reusable_back_btn"/>
 
-            <com.simplex.simplelight.MafiaRising.CustomFontTextView
+            <com.illum.MafiaRising.CustomFontTextView
                 android:id="@+id/title"
                 android:text="@string/pauseroles_title"
                 android:textSize="50sp"

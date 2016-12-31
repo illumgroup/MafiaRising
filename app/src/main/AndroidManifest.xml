@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".test_play" />
+        <activity android:name=".Pause" />
+        <activity android:name=".PauseRoles" />
         <activity android:name=".Options" />
         <activity android:name=".OptionsInfo" />
         <activity android:name=".Rules" />

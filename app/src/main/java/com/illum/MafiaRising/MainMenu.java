@@ -27,27 +27,57 @@ public class MainMenu extends BaseActivity {
         );
     }
 
-
     public void startGame(View view)
     {
         backButtonCount = 0;
-        //startActivity(new Intent(MainMenu.this, Players_Setup.class));
+        Intent intent = new Intent(this, test_play.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+        startActivity(intent);
+        //Intent intent = new Intent(this, Players_Setup.class);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+        //startActivity(intent);
+        /* Notes 1
+        Starting a new game should check to see if there is a game in progress,
+        if so, confirm the user wants to start a new game.
+        */
+        /* NOTES 2
+        FLAG_ACTIVITY_TASK_ON_HOME starts the activity and clears activities
+        on top of home activity.
+        New game screens should use this flag so pressing back will go back
+        to the main menu.
+        Other screens (eg. options) should be normal.
+        */
+        /* NOTES 3
+        Or use: FLAG_ACTIVITY_NO_HISTORY makes the screen be not kept in history stack.
+        So during play, any button that opens a new activity (eg. options)
+        should add the current screen to the backstack.
+        This way, pressing back from the new activity (eg. options)
+        will bring the current screen back.
+        We want no history so you can't go back to a previous game screen;
+        pressing back will bring you to the main menu.
+        */
     }
 
     public void continueGame(View view)
     {
         backButtonCount = 0;
-
+        /* Notes 3
+        Should continueGame be auto-hidden when there is no previous game
+        or should it be kept visible and just start a new game?
+        auto-hide:
+          pros: more whats-the-word/logical?
+          cons: there is a change in interface
+                will require restructuring of main menu layout
+        keep-visible:
+          pros: menu can be kept as-is
+                need to add more code to main menu class
+          cons: less whats-the-word/logical?
+        */
     }
 
     public void activityOptions(View view)
     {
         backButtonCount = 0;
-        /*
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.putString("Test", "Testing Shared Preferences");
-        editor.commit();
-        */
         Intent intent = new Intent(this, Options.class);
         startActivity(intent);
     }
