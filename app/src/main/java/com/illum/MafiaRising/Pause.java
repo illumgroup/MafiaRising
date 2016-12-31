@@ -13,22 +13,14 @@ public class Pause extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pause);
 
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        );
+        init();
     }
 
     public void backMainMenu(View view) {
         Intent intent = new Intent();
         intent.putExtra("exitCode",1);
         setResult(Activity.RESULT_OK,intent);
-        finish();
+        super.onBackPressed();
     }
 
     public void activityRoles(View view) {

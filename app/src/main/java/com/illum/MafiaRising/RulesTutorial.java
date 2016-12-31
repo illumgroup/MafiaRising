@@ -34,9 +34,17 @@ public class RulesTutorial extends FragmentActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         );
 
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
         adapter = new RulesTutorialPagerAdapter(getSupportFragmentManager());
         pager = (BidirectionalViewPager) findViewById(R.id.tutorial_pager);
         pager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override

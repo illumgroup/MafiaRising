@@ -10,13 +10,14 @@
     android:id="@+id/mm_root_layout">
 
     <LinearLayout
+        android:id="@+id/mm_root_container"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="9">
 
         <RelativeLayout
-            android:id="@+id/logo"
+            android:id="@+id/logo_holder"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="0dp"
@@ -24,6 +25,7 @@
             android:layout_weight="4.5">
 
             <ImageView
+                android:id="@+id/logo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"

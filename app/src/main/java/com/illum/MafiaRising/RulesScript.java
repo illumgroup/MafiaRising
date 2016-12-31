@@ -38,9 +38,17 @@ public class RulesScript extends FragmentActivity {
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         );
 
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
         adapter = new RulesScriptPagerAdapter(getSupportFragmentManager());
         pager = (BidirectionalViewPager) findViewById(R.id.script_pager);
         pager.setAdapter(adapter);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     @Override
