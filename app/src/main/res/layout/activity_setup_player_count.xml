@@ -19,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/header_content_height">
 
-            <include layout="@layout/reusable_pause_btn"
-                android:id="@+id/include" />
+            <include layout="@layout/reusable_pause_btn"/>
 
             <com.illum.MafiaRising.CustomFontTextView
                 android:id="@+id/title"

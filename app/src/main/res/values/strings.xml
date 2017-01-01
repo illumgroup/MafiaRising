@@ -142,6 +142,7 @@
     <string name="role_info_moderator">The moderator creates an immersive story for the players to play in. By interacting with various characters in the game, the moderator controls the game\'s progression. Also, the moderator may add sound effects to dramatize the game experience.</string>
     <string name="role_info_police">The police\'s duty is to investigate the criminals of the town. At night, the police indicates to the moderator who he wants to suspect. If the police has correctly identified the mafia, the moderator will notify the police with a nod. If the police has not correctly identified the mafia, the moderator will notify the police with a shake of the head. During the day, the police will use the information gathered to sway public opinion to direct the public eye to the mafia without revealing himself in order to escape the murderous hand of the mafia.</string>
 
+    <!--TODO: create 4 other string-array for extra roles -->
     <string-array name="roles_names">
         <item>@string/role_name_citizen</item>
         <item>@string/role_name_doctor</item>
@@ -207,6 +208,16 @@
     <string name="options_sfx">Sound Effects</string>
     <string name="options_music">Music</string>
 
+    <string name="options_info_title">INFO</string>
+    <string name="options_info_computer">Choose whether to use automated voice for directions and a randomly generated story or not at all</string>
+    <string name="options_info_sfx">Change the volume of the sound effects</string>
+    <string name="options_info_music">Change the volume of the background music</string>
+
+    <string name="game_session_file_key">game_session</string>
+    <string name="game_session_player_count_key">game_session_player_count</string>
+    <string name="game_session_player_count_min">4</string>
+    <string name="game_session_player_count_max">25</string>
+
     <string name="options_pref_file_key">opts_user</string>
     <string name="options_pref_ai_directions">opts_user_ai_directions</string>
     <string name="options_pref_ai_directions_default">true</string>
@@ -216,11 +227,6 @@
     <string name="options_pref_vol_sfx_default">50</string>
     <string name="options_pref_vol_bkgd">opts_user_vol_bkgd</string>
     <string name="options_pref_vol_bkgd_default">50</string>
-
-    <string name="options_info_title">INFO</string>
-    <string name="options_info_computer">Choose whether to use automated voice for directions and a randomly generated story or not at all</string>
-    <string name="options_info_sfx">Change the volume of the sound effects</string>
-    <string name="options_info_music">Change the volume of the background music</string>
 
     <string name="hint_taptocontinue">Tap anywhere to continue</string>
 </resources>
