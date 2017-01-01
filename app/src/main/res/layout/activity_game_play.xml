@@ -15,9 +15,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Pause"
-        android:onClick="activityPause"
+        android:onClick="onClickPause"
         android:textSize="30sp"
         app:font="@string/font_name_kefa"
         android:layout_margin="100dp"
         android:id="@+id/tempdisp"/>
+
 </RelativeLayout>

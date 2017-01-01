@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
-            app:font="@string/font_name_kefa"
+            app:font="@string/font_name_manteka"
             android:layout_centerVertical="true"/>
 
     </RelativeLayout>

@@ -126,8 +126,8 @@ public class RulesTutorial extends FragmentActivity {
 
             int contentLayout = 1;
             String contentLayoutColor = "#FFFFFF";
-            String text1 = "", text1Size = "0", text1Color = "#FFFFFF", text1Font = getResources().getString(R.string.font_name_kefa), text1Gravity = "center_vertical";
-            String text2 = "", text2Size = "0", text2Color = "#FFFFFF", text2Font = getResources().getString(R.string.font_name_kefa), text2Gravity = "center_vertical";
+            String text1 = "", text1Size = "0", text1Color = "#FFFFFF", text1Font = getResources().getString(R.string.font_name_manteka), text1Gravity = "center_vertical";
+            String text2 = "", text2Size = "0", text2Color = "#FFFFFF", text2Font = getResources().getString(R.string.font_name_manteka), text2Gravity = "center_vertical";
             String img1 = "placeholderbox", img1MaxWidth = "", img1MinWidth = "", img1MaxHeight = "", img1MinHeight = "", img1ScaleType = "";
             String[] contentAttribsUnparsed = tutorialContent[curSlide].split(Pattern.quote("`|"));
             for (String contentAttribUnparsed: contentAttribsUnparsed) {

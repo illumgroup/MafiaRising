@@ -6,6 +6,6 @@
     android:layout_marginTop="25dp"
     android:layout_marginBottom="50dp"
     android:id="@+id/root_layout"
-    tools:context="com.illum.MafiaRising.CameraCards">
+    tools:context=".CameraCards">
 
 </FrameLayout>

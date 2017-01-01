@@ -1,15 +1,13 @@
 package com.illum.MafiaRising;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class BaseActivity extends AppCompatActivity {
 
-    public void back_menu(View view) {
-        super.onBackPressed();
-
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-    }
+    static final int PAUSE_SCREEN_REQUEST = 13975;
 
     public void init() {
         View decorView = getWindow().getDecorView();
@@ -23,6 +21,29 @@ public class BaseActivity extends AppCompatActivity {
         );
 
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public void onClickBack(View view) {
+        super.onBackPressed();
+
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    public void onClickPause(View view) {
+        Intent intent = new Intent(this, Pause.class);
+        startActivityForResult(intent, PAUSE_SCREEN_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PAUSE_SCREEN_REQUEST) {
+            if(resultCode == Activity.RESULT_OK) {
+                if (data.getIntExtra("exitCode", 0) == 1) {
+                    super.onBackPressed();
+                }
+            }
+        }
     }
 
     @Override

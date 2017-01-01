@@ -47,6 +47,9 @@ public class CustomFontUtils {
                     return FontCache.getTypeface("Kefa-Regular.ttf",context);
             }
         }
+        else if(fontName != null && fontName.contentEquals(context.getString(R.string.font_name_manteka))) {
+            return FontCache.getTypeface("Manteka.ttf",context);
+        }
         else
         {
             return Typeface.DEFAULT;

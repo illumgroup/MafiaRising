@@ -42,12 +42,8 @@ public class MainMenu extends BaseActivity {
     public void startGame(View view)
     {
         backButtonCount = 0;
-        Intent intent = new Intent(this, test_play.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+        Intent intent = new Intent(this, SetupPlayers.class);
         startActivity(intent);
-        //Intent intent = new Intent(this, Players_Setup.class);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME);
-        //startActivity(intent);
         /* Notes 1
         Starting a new game should check to see if there is a game in progress,
         if so, confirm the user wants to start a new game.
