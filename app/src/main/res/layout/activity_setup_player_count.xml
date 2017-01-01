@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
     android:background="@drawable/bkgd_grungewithswoosh"
-    tools:context=".SetupPlayers">
+    tools:context=".SetupPlayerCount">
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -24,7 +24,7 @@
 
             <com.illum.MafiaRising.CustomFontTextView
                 android:id="@+id/title"
-                android:text="@string/setupplayers_title"
+                android:text="@string/setup_player_count_title"
                 android:textSize="50sp"
                 android:textColor="@color/red"
                 android:layout_width="wrap_content"

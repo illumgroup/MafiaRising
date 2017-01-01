@@ -7,7 +7,10 @@ import android.view.View;
 
 public class BaseActivity extends AppCompatActivity {
 
-    static final int PAUSE_SCREEN_REQUEST = 13975;
+    public static final int REQUEST_EXIT_CODE = 13975;
+    public static final int CODE_DEFAULT = 0;
+    public static final int CODE_RETURN_TO_MAIN = 1;
+    public static final int CODE_CLEAR_PREVIOUS = 2;
 
     public void init() {
         View decorView = getWindow().getDecorView();
@@ -31,15 +34,32 @@ public class BaseActivity extends AppCompatActivity {
 
     public void onClickPause(View view) {
         Intent intent = new Intent(this, Pause.class);
-        startActivityForResult(intent, PAUSE_SCREEN_REQUEST);
+        startActivityForResult(intent, REQUEST_EXIT_CODE);
+    }
+
+    public void clearPrevious() {
+        Intent back_intent = new Intent();
+        back_intent.putExtra("exitCode",BaseActivity.CODE_CLEAR_PREVIOUS);
+        setResult(Activity.RESULT_OK,back_intent);
+        super.onBackPressed();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == PAUSE_SCREEN_REQUEST) {
+        if(requestCode == REQUEST_EXIT_CODE) {
             if(resultCode == Activity.RESULT_OK) {
-                if (data.getIntExtra("exitCode", 0) == 1) {
+                int exitCode = data.getIntExtra("exitCode", 0);
+                if (exitCode == CODE_RETURN_TO_MAIN) {
+                    Intent intent = new Intent();
+                    intent.putExtra("exitCode",BaseActivity.CODE_RETURN_TO_MAIN);
+                    setResult(Activity.RESULT_OK,intent);
+                    super.onBackPressed();
+                }
+                else if(exitCode == CODE_CLEAR_PREVIOUS) {
+                    Intent intent = new Intent();
+                    intent.putExtra("exitCode",BaseActivity.CODE_CLEAR_PREVIOUS);
+                    setResult(Activity.RESULT_OK,intent);
                     super.onBackPressed();
                 }
             }

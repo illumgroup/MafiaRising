@@ -17,10 +17,7 @@ public class Pause extends BaseActivity {
     }
 
     public void backMainMenu(View view) {
-        Intent intent = new Intent();
-        intent.putExtra("exitCode",1);
-        setResult(Activity.RESULT_OK,intent);
-        super.onBackPressed();
+        clearPrevious();
     }
 
     public void activityRoles(View view) {
