@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="roles">
+        <item>Mafia</item>
+        <item>Police</item>
+        <item>Citizen</item>
+    </string-array>
+
+    <array name="images">
+        <item>@drawable/cereal_guy</item>
+        <item>@drawable/f_yeah</item>
+        <item>@drawable/forever_alone</item>
+        <item>@drawable/freddie_mercury</item>
+        <item>@drawable/lol_guy</item>
+        <item>@drawable/neil_degrasse_tyson</item>
+        <item>@drawable/oh_crap</item>
+        <item>@drawable/okay</item>
+        <item>@drawable/rage_guy</item>
+        <item>@drawable/troll_face</item>
+        <item>@drawable/y_u_no_guy</item>
+        <item>@drawable/yao_ming</item>
+    </array>
+
+</resources>

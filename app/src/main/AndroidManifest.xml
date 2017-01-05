@@ -1,35 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.illum.MafiaRising">
+    package="com.simplex.simplelight.deceived">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
+        android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu"
-            android:label="@string/app_name"
-            android:theme="@style/SplashTheme">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SetupPlayerCount" />
-        <activity android:name=".SetupExtraRoles" />
-        <activity android:name=".SetupPlayerCards" />
-        <activity android:name=".GameReady" />
+        <activity android:name=".MainMenu" />
+        <activity android:name=".Settings" />
+        <activity android:name=".HowToPlay" />
         <activity android:name=".GamePlay" />
-        <activity android:name=".Pause" />
-        <activity android:name=".PauseRoles" />
-        <activity android:name=".Options" />
-        <activity android:name=".OptionsInfo" />
-        <activity android:name=".Rules" />
-        <activity android:name=".RulesTutorial" />
-        <activity android:name=".RulesScript" />
-        <activity android:name=".RulesRoles" />
-        <activity android:name=".RulesRole" />
+        <activity android:name=".Players_Setup" />
+        <activity android:name=".CameraCards"></activity>
     </application>
 
 </manifest>
