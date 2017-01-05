@@ -20,7 +20,7 @@ public class RulesRole extends BaseActivity {
         String[] rolesImgs = getResources().getStringArray(R.array.roles_imgs);
         String[] rolesInfo = getResources().getStringArray(R.array.roles_info);
 
-        int i = getIntent().getIntExtra("index",0);
+        int i = getIntent().getIntExtra("RulesRolesIndex",0);
 
         View header = findViewById(R.id.header);
         View headerContent = header.findViewById(R.id.header_content);

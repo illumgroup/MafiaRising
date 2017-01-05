@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 public class RulesRoles extends BaseActivity {
 
     int rolesLen;
-    String[] rolesNames, rolesStances, rolesInfo;
+    String[] rolesNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +19,6 @@ public class RulesRoles extends BaseActivity {
         init();
 
         rolesNames = getResources().getStringArray(R.array.roles_names);
-        rolesStances = getResources().getStringArray(R.array.roles_stances);
-        rolesInfo = getResources().getStringArray(R.array.roles_info);
 
         rolesLen = rolesNames.length;
         double btn_weight = 1.0/rolesLen;
@@ -44,7 +42,7 @@ public class RulesRoles extends BaseActivity {
         ViewGroup content = (ViewGroup) btnHolder.getParent();
         int i = content.indexOfChild(btnHolder);
         Intent intent = new Intent(this, RulesRole.class);
-        intent.putExtra("index",i);
+        intent.putExtra("RulesRolesIndex",i);
         startActivity(intent);
     }
 }

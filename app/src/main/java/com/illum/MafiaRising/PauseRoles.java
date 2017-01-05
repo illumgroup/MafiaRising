@@ -1,10 +1,10 @@
 package com.illum.MafiaRising;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PauseRoles extends BaseActivity {
 
@@ -15,15 +15,15 @@ public class PauseRoles extends BaseActivity {
 
         init();
 
-        ArrayList roles = getRolesList();
+        List roles = getRolesList();
 
         final ListView listView = (ListView) findViewById(R.id.roles_list);
         PauseRolesListAdapter arrayAdapter = new PauseRolesListAdapter(this, roles);
         listView.setAdapter(arrayAdapter);
     }
 
-    private ArrayList getRolesList() {
-        ArrayList<PauseRolesItem> results = new ArrayList<PauseRolesItem>();
+    private List getRolesList() {
+        List<PauseRolesItem> results = new ArrayList<PauseRolesItem>();
         results.add(new PauseRolesItem("Citizen",R.drawable.placeholderbox));
         results.add(new PauseRolesItem("Mafia",R.drawable.placeholderbox));
         results.add(new PauseRolesItem("Police",R.drawable.placeholderbox));

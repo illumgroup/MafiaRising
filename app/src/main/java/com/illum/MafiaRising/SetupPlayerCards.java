@@ -1,12 +1,13 @@
 package com.illum.MafiaRising;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class SetupPlayerCards extends BaseActivity {
 
@@ -28,7 +29,13 @@ public class SetupPlayerCards extends BaseActivity {
         final String sharedPrefsPlayerCountMin = getString(R.string.game_session_player_count_min);
         playerCount = sharedPrefs.getInt(sharedPrefsPlayerCountkey, Integer.parseInt(sharedPrefsPlayerCountMin));
 
-        playerIndex = getIntent().getIntExtra("playerIndex", playerCount);
+        String sharedPrefsSetupExtraRolesKey = getString(R.string.app_package) + "." + getString(R.string.game_session_extra_roles_key);
+        Set<String> selectedExtraRoles = sharedPrefs.getStringSet(sharedPrefsSetupExtraRolesKey,new HashSet<String>());
+
+        playerIndex = getIntent().getIntExtra("SetupPlayerIndex", playerCount);
+
+        View btnNext = findViewById(R.id.next_button);
+        btnNext.setVisibility(View.INVISIBLE);
 
         //TODO: learn how to use camera to take pictures
         //TODO: store images somewhere secure
@@ -46,7 +53,7 @@ public class SetupPlayerCards extends BaseActivity {
         }
         else {
             Intent intent = new Intent(this, SetupPlayerCards.class);
-            intent.putExtra("playerIndex", playerIndex + 1);
+            intent.putExtra("SetupPlayerIndex", playerIndex + 1);
             startActivityForResult(intent, BaseActivity.REQUEST_EXIT_CODE);
         }
     }
