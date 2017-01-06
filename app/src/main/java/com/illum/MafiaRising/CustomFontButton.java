@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 
+//custom button that allows font attribute
+//requires CustomFontUtils
 public class CustomFontButton extends Button {
     public CustomFontButton(Context context) {
         super(context);

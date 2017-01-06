@@ -5,11 +5,13 @@ import android.graphics.Typeface;
 
 import java.util.HashMap;
 
-public class FontCache {
+//gets the font style if it exists or returns Default
+//uses HashMap to quickly grab it on later calls
+class FontCache {
 
     private static HashMap<String, Typeface> fontCache = new HashMap<>();
 
-    public static Typeface getTypeface(String fontname, Context context)
+    static Typeface getTypeface(String fontname, Context context)
     {
         Typeface typeface = fontCache.get(fontname);
         if(typeface == null)

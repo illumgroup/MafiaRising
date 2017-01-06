@@ -9,8 +9,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 
+//shows options screen
 public class Options extends BaseActivity {
 
+    //holds sharedPrefs specific to options screen
     SharedPreferences sharedPrefs;
 
     @Override
@@ -21,9 +23,11 @@ public class Options extends BaseActivity {
 
         init();
 
+        //get options sharedPref file key and open in private mode so only this can access it
         final String sharedPrefsFileKey = getString(R.string.app_package) + "." + getString(R.string.options_pref_file_key);
         sharedPrefs = getSharedPreferences(sharedPrefsFileKey, Context.MODE_PRIVATE);
 
+        //get options sharedPref keys and defaults
         final String sharedPrefsAiDirectionsKey = getString(R.string.app_package) + "." +  getString(R.string.options_pref_ai_directions);
         final String sharedPrefsAiDirectionsDefault = getString(R.string.options_pref_ai_directions_default);
         final String sharedPrefsAiStoryKey = getString(R.string.app_package) + "." +  getString(R.string.options_pref_ai_story);
@@ -33,6 +37,7 @@ public class Options extends BaseActivity {
         final String sharedPrefsVolBkgdKey = getString(R.string.app_package) + "." +  getString(R.string.options_pref_vol_bkgd);
         final String sharedPrefsVolBkgdDefault = getString(R.string.options_pref_vol_bkgd_default);
 
+        //get directions checkbox, set default state and listener that sets sharedPref
         final CheckBox aiDirections = (CheckBox) findViewById(R.id.directions_checkbox);
         aiDirections.setChecked(sharedPrefs.getBoolean(sharedPrefsAiDirectionsKey,Boolean.parseBoolean(sharedPrefsAiDirectionsDefault)));
         aiDirections.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
@@ -43,6 +48,7 @@ public class Options extends BaseActivity {
             }
         });
 
+        //get story checkbox, set default state and listener that sets sharedPref
         final CheckBox aiStory = (CheckBox) findViewById(R.id.story_checkbox);
         aiStory.setChecked(sharedPrefs.getBoolean(sharedPrefsAiStoryKey,Boolean.parseBoolean(sharedPrefsAiStoryDefault)));
         aiStory.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
@@ -53,6 +59,7 @@ public class Options extends BaseActivity {
             }
         });
 
+        //get sfx seekbar, set default state and listener that sets sharedPref
         final SeekBar volumeSfx = (SeekBar) findViewById(R.id.sfx_bar);
         volumeSfx.setProgress(sharedPrefs.getInt(sharedPrefsVolSfxKey, Integer.parseInt(sharedPrefsVolSfxDefault)));
         volumeSfx.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -71,6 +78,7 @@ public class Options extends BaseActivity {
             }
         });
 
+        //get bkgd music seekbar, set default state and listener that sets sharedPref
         final SeekBar volumeBkgd = (SeekBar) findViewById(R.id.music_bar);
         volumeBkgd.setProgress(sharedPrefs.getInt(sharedPrefsVolBkgdKey, Integer.parseInt(sharedPrefsVolBkgdDefault)));
         volumeBkgd.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -91,6 +99,7 @@ public class Options extends BaseActivity {
         });
     }
 
+    //start options info activity on info button tap
     public void activityOptionsInfo(View view) {
         Intent intent = new Intent(this, OptionsInfo.class);
         startActivity(intent);

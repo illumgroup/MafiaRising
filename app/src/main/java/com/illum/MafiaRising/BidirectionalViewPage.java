@@ -5,11 +5,16 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
+//class for a page of BidirectionalViewPager
+//one public variable:
+// pageSwipeDirection
 public class BidirectionalViewPage extends LinearLayout {
 
+    //swipe direction for this page, can be set in an attribute
     String pageSwipeDirection;
-    String swipeHorizontalString;
-    String swipeVerticalString;
+    //static string constants, I think I did this wrong
+    static String swipeHorizontalString;
+    static String swipeVerticalString;
 
     public BidirectionalViewPage(Context context) {
         super(context);
@@ -19,6 +24,7 @@ public class BidirectionalViewPage extends LinearLayout {
     public BidirectionalViewPage(Context context, AttributeSet attribs) {
         super(context, attribs);
 
+        //get default page swipe direction from attribute
         TypedArray attribArray = context.obtainStyledAttributes(
                 attribs,
                 R.styleable.BidirectionalViewPage);
@@ -30,6 +36,7 @@ public class BidirectionalViewPage extends LinearLayout {
         init();
     }
 
+    //sets static string constants and checks default swipe direction
     public void init() {
         swipeHorizontalString = getResources().getString(R.string.swipe_direction_horizontal);
         swipeVerticalString = getResources().getString(R.string.swipe_direction_vertical);

@@ -6,6 +6,8 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+//custom textView that allows font and textStyle attribute
+//requires CustomFontUtils
 public class CustomFontTextView extends TextView {
     public CustomFontTextView(Context context) {
         super(context);
@@ -24,6 +26,7 @@ public class CustomFontTextView extends TextView {
         CustomFontUtils.applyCustomFont(this, context, attribs);
     }
 
+    //get font name attribute from custom TextView programmatically
     public String getFont() {
         Context context = this.getContext();
 
@@ -36,6 +39,9 @@ public class CustomFontTextView extends TextView {
         return fontName;
     }
 
+    //set the font programmatically
+    //currently defaults the textStyle to what the attribute already is or normal
+    //could probably make another function that accepts another parameter for textStyle
     public void setFont(String fontName) {
         Context context = this.getContext();
 

@@ -1,10 +1,10 @@
 package com.illum.MafiaRising;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+//shown after setup and before game started
 public class GameReady extends BaseActivity {
 
     @Override
@@ -15,13 +15,8 @@ public class GameReady extends BaseActivity {
         init();
     }
 
-    public void backMainMenu(View view) {
-        Intent intent = new Intent();
-        intent.putExtra("exitCode",BaseActivity.CODE_RETURN_TO_MAIN);
-        setResult(Activity.RESULT_OK,intent);
-        super.onBackPressed();
-    }
-
+    //called when user hits next button
+    //starts game, sets checkpoint (finishes previous screens up to main menu)
     public void onClickNext(View view) {
         Intent intent = new Intent(this, GamePlay.class);
         startActivityForResult(intent, BaseActivity.REQUEST_EXIT_CODE);

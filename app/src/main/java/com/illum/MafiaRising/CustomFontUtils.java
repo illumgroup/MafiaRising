@@ -6,10 +6,14 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-public class CustomFontUtils {
-    public static final String ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android";
+//allows apply font
+//requires FontCache and attribs.xml with font and textStyle attributes
+class CustomFontUtils {
+    private static final String ANDROID_SCHEMA = "http://schemas.android.com/apk/res/android";
 
-    public static void applyCustomFont(TextView customFontTextView, Context context, AttributeSet attribs)
+    //gets font and textStyle and calls selectTypeface to get the font style, then sets it
+    //not sure if completely correct, how does CustomFontButton work if this is TextView?
+    static void applyCustomFont(TextView customFontTextView, Context context, AttributeSet attribs)
     {
         TypedArray attribArray = context.obtainStyledAttributes(
                 attribs,
@@ -25,12 +29,14 @@ public class CustomFontUtils {
         }
 
         Typeface customFont = selectTypeface(context, fontName, textStyle);
+
         customFontTextView.setTypeface(customFont);
 
         attribArray.recycle();
     }
 
-    public static Typeface selectTypeface(Context context, String fontName, int textStyle)
+    //gets hardcoded font style in assets based on fontName and textStyle
+    static Typeface selectTypeface(Context context, String fontName, int textStyle)
     {
         if(fontName != null && fontName.contentEquals(context.getString(R.string.font_name_kefa)))
         {

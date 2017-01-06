@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
+//shows pause activity
 public class Pause extends BaseActivity {
 
     @Override
@@ -16,20 +17,22 @@ public class Pause extends BaseActivity {
         init();
     }
 
-    public void backMainMenu(View view) {
-        clearPrevious();
-    }
+    //backMainMenu is in BaseActivity
+    //called when Home button is pressed
 
+    //starts pause roles activity, shows current players and roles
     public void activityRoles(View view) {
         Intent intent = new Intent(this, PauseRoles.class);
         startActivity(intent);
     }
 
+    //starts options activity
     public void activityOptions(View view) {
         Intent intent = new Intent(this, Options.class);
         startActivity(intent);
     }
 
+    //starts rules activity
     public void activityRules(View view) {
         Intent intent = new Intent(this, Rules.class);
         startActivity(intent);

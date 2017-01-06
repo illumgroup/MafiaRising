@@ -1,8 +1,8 @@
 package com.illum.MafiaRising;
 
 import android.os.Bundle;
-import android.view.View;
 
+//options info screen, shown when user hits info btn on options activity
 public class OptionsInfo extends BaseActivity {
 
     @Override

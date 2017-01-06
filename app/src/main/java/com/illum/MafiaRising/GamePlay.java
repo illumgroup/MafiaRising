@@ -1,8 +1,8 @@
 package com.illum.MafiaRising;
 
 import android.os.Bundle;
-import android.view.View;
 
+//STUB
 public class GamePlay extends BaseActivity {
 
     @Override

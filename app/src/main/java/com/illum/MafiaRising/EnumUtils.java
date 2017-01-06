@@ -3,9 +3,11 @@ package com.illum.MafiaRising;
 
 import android.widget.ImageView;
 
-public class EnumUtils {
+//utility functions to convert strings to their enum values
+//currently converts ImageView ScaleType and Layout gravity
+class EnumUtils {
 
-    public static ImageView.ScaleType getScaleType(String scaleType) {
+    static ImageView.ScaleType getScaleType(String scaleType) {
         switch(scaleType) {
             case "center":
                 return ImageView.ScaleType.CENTER;
@@ -28,7 +30,7 @@ public class EnumUtils {
         }
     }
 
-    public static int getGravity(String gravity) {
+    static int getGravity(String gravity) {
         switch(gravity) {
             case "top":
                 return 0x30;

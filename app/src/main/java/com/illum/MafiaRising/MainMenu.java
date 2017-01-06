@@ -8,9 +8,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
+//shown after splash screen, launcher-type activity
 public class MainMenu extends BaseActivity {
 
+    //keeps track of times back button was hit, should be cleared on any menu button tap
     private static int backButtonCount = 0;
+    //holds toast so it can be dismissed
     Toast toastExit;
 
     @Override
@@ -20,6 +23,7 @@ public class MainMenu extends BaseActivity {
 
         init();
 
+        //give every view a fadein animation with delay offset based on child position
         ViewGroup container = (ViewGroup) findViewById(R.id.mm_root_container);
         for(int i=0;i<container.getChildCount();++i) {
             View v = container.getChildAt(i);
@@ -31,6 +35,7 @@ public class MainMenu extends BaseActivity {
 
     }
 
+    //starts the game, unfinished
     public void startGame(View view)
     {
         backButtonCount = 0;
@@ -42,6 +47,7 @@ public class MainMenu extends BaseActivity {
         */
     }
 
+    //continues previous game session, STUB
     public void continueGame(View view)
     {
         backButtonCount = 0;
@@ -59,6 +65,7 @@ public class MainMenu extends BaseActivity {
         */
     }
 
+    //starts options activity
     public void activityOptions(View view)
     {
         backButtonCount = 0;
@@ -66,6 +73,7 @@ public class MainMenu extends BaseActivity {
         startActivity(intent);
     }
 
+    //starts rules activity
     public void activityRules(View view)
     {
         backButtonCount = 0;
@@ -73,7 +81,11 @@ public class MainMenu extends BaseActivity {
         startActivity(intent);
     }
 
-    /*
+    /* not needed atm b/c no music player
+    test if switching apps when on a child activity calls the onPause of the main menu activity
+    if yes, keep them here
+    if no, need to put these in BaseActivity (don't forget viewpagers) and need to figure out how
+     access music player accross activities
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -102,8 +114,9 @@ public class MainMenu extends BaseActivity {
     }
     */
 
+    //override the back button to have confirmation toast, dismisses toast if exiting app
     @Override
-    public void onBackPressed() { //override back button
+    public void onBackPressed() {
         if(backButtonCount >= 1)
         {
             if (toastExit != null) toastExit.cancel();
