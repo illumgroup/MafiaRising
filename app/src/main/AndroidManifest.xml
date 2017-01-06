@@ -29,7 +29,7 @@
         <activity android:name=".RulesTutorial" />
         <activity android:name=".RulesScript" />
         <activity android:name=".RulesRoles" />
-        <activity android:name=".RulesRole" />
+        <activity android:name=".RulesRolesRole" />
     </application>
 
 </manifest>

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
-//shows pause activity
+//shows pause menu screen
 public class Pause extends BaseActivity {
 
     @Override

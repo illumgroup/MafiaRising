@@ -20,6 +20,9 @@ import android.widget.TextView;
 
 import java.util.regex.Pattern;
 
+//shows script viewpager screens
+//TODO: make BaseFragmentActivity that generalizes common functions
+//TODO: comment RulesScript and RulesTutorial
 public class RulesScript extends FragmentActivity {
     RulesScriptPagerAdapter adapter;
     BidirectionalViewPager pager;
@@ -67,6 +70,7 @@ public class RulesScript extends FragmentActivity {
         }
     }
 
+    //main part that fills the activity
     public class RulesScriptPagerAdapter extends FragmentStatePagerAdapter {
 
         int scriptTitlesLen;
@@ -104,6 +108,7 @@ public class RulesScript extends FragmentActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            //get slide info
             String[] scriptTitles = getResources().getStringArray(R.array.script_slide_titles);
             String[] scriptSwipeDirs = getResources().getStringArray(R.array.script_slide_swipedir);
             String[] scriptContent = getResources().getStringArray(R.array.script_slide_content);
@@ -125,6 +130,7 @@ public class RulesScript extends FragmentActivity {
                 slide.setPageSwipeDirection(scriptSwipeDirs[curSlide]);
             }
 
+            //fill page contents
             TextView slideTitle = (TextView) slide.findViewById(R.id.header).findViewById(R.id.title);
             slideTitle.setText(scriptTitles[curSlide]);
 

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-//shows splash activity, starts main menu, then finishes itself
+//shows splash screen, starts main menu activity, then finishes itself
 public class SplashActivity extends AppCompatActivity {
 
     @Override

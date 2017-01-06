@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import java.util.regex.Pattern;
 
+//shows tutorial viewpager screens
 public class RulesTutorial extends FragmentActivity {
     RulesTutorialPagerAdapter adapter;
     BidirectionalViewPager pager;

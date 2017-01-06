@@ -18,7 +18,7 @@ public class PauseRoles extends BaseActivity {
         init();
 
         //get list of players and roles
-        List roles = getRolesList();
+        List<PauseRolesItem> roles = getRolesList();
 
         //set ListView using list
         final ListView listView = (ListView) findViewById(R.id.roles_list);
@@ -27,7 +27,7 @@ public class PauseRoles extends BaseActivity {
     }
 
     //gets the list of players and roles for current game session
-    private List getRolesList() {
+    private List<PauseRolesItem> getRolesList() {
         List<PauseRolesItem> results = new ArrayList<PauseRolesItem>();
         //dummy list for now
         results.add(new PauseRolesItem("Citizen",R.drawable.placeholderbox));
