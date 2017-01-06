@@ -40,6 +40,17 @@ public class RulesTutorial extends FragmentActivity {
         adapter = new RulesTutorialPagerAdapter(getSupportFragmentManager());
         pager = (BidirectionalViewPager) findViewById(R.id.tutorial_pager);
         pager.setAdapter(adapter);
+        pager.setOnSwipeOutBoundsListener(new BidirectionalViewPager.OnSwipeOutBoundsListener() {
+            @Override
+            public void onSwipeOutBoundsAtStart() {
+                RulesTutorial.super.onBackPressed();
+            }
+
+            @Override
+            public void onSwipeOutBoundsAtEnd() {
+                RulesTutorial.super.onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -51,6 +62,7 @@ public class RulesTutorial extends FragmentActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         if (hasFocus) {
             View decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(

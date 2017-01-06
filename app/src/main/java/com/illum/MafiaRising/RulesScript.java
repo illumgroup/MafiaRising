@@ -46,6 +46,17 @@ public class RulesScript extends FragmentActivity {
         adapter = new RulesScriptPagerAdapter(getSupportFragmentManager());
         pager = (BidirectionalViewPager) findViewById(R.id.script_pager);
         pager.setAdapter(adapter);
+        pager.setOnSwipeOutBoundsListener(new BidirectionalViewPager.OnSwipeOutBoundsListener() {
+            @Override
+            public void onSwipeOutBoundsAtStart() {
+                RulesScript.super.onBackPressed();
+            }
+
+            @Override
+            public void onSwipeOutBoundsAtEnd() {
+                RulesScript.super.onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -57,6 +68,7 @@ public class RulesScript extends FragmentActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         if (hasFocus) {
             View decorView = getWindow().getDecorView();
             decorView.setSystemUiVisibility(

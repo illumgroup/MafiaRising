@@ -5,8 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 //class for a ViewPager that allows either horizontal or vertical swipes for each page
 //each page can have a set swipe direction attribute or it will use the default swipe direction
@@ -19,6 +22,10 @@ public class BidirectionalViewPager extends ViewPager {
     //static string constants
     static String swipeHorizontalString;
     static String swipeVerticalString;
+
+    float touchStartX;
+    float touchStartY;
+    OnSwipeOutBoundsListener swipeOutBoundsListener;
 
     public BidirectionalViewPager(Context context) {
         super(context);
@@ -61,7 +68,7 @@ public class BidirectionalViewPager extends ViewPager {
                 view.setAlpha(0);
             }
             //page is somewhere on screen, make it visible and transform it appropriately
-            // i (maybe?) gets the last-swiped view; the current swipe direction should copy
+            // i should be the next view; the current swipe direction of both pages should copy
             //  the direction of that view
             // e.g. 3 screens, 1st - swipe L/R, 2nd - swipe U/D, 3rd - swipe L/R
             //  user swipes R, swipe D, swipe R
@@ -70,9 +77,9 @@ public class BidirectionalViewPager extends ViewPager {
             // unfortunately, there is a bug where if the user swipes back to a previous screen,
             //  the transform will be wrong if the directions were different
             // e.g. using previous example, user swipes R, D, then L
-            //  2 will slide vertically while 3 will slide horizontally => not right
-            // solution? need way to determine which child view is the "previous" screen and get
-            //  the swipe direction of that screen properly which current method fails to do
+            //  2 will slide vertically while 3 will slide horizontally => not correct
+            // solution? need way to determine which child view is the "next" screen and get
+            //  the swipe direction of that screen properly, current method fails to do that
             else {
                 view.setAlpha(1);
                 //get the (position?) of the current view in the viewPager
@@ -150,28 +157,61 @@ public class BidirectionalViewPager extends ViewPager {
         }
     }*/
 
+    //declare interface
+    public interface OnSwipeOutBoundsListener {
+        void onSwipeOutBoundsAtStart();
+        void onSwipeOutBoundsAtEnd();
+    }
+
+    //setter for OnSwipeOutBoundsListener
+    public void setOnSwipeOutBoundsListener(OnSwipeOutBoundsListener listener) {
+        swipeOutBoundsListener = listener;
+    }
+
     //handle touch event
     //determine which page was touched, get its swipe direction and allow vertical swipe if needed
+    // add listener for swiping at start and end
     @Override
     public boolean onTouchEvent(MotionEvent evt) {
-        int x = Math.round(evt.getX());
-        int y = Math.round(evt.getY());
+        float x = evt.getX();
+        float y = evt.getY();
         //figure out which child was touched
         int numChildren = getChildCount();
         for(int i=0;i<numChildren;++i) {
             View child = getChildAt(i);
-            Rect bb = new Rect();
-            child.getGlobalVisibleRect(bb);
+            Rect childBounds = new Rect();
+            child.getGlobalVisibleRect(childBounds);
             //this child was touched
-            if(bb.contains(x,y)) {
+            if(childBounds.contains(Math.round(x),Math.round(y))) {
+                //save touch coordinates
+                if (evt.getAction() == MotionEvent.ACTION_DOWN) {
+                    touchStartX = x;
+                    touchStartY = y;
+                }
                 BidirectionalViewPage curPage = (BidirectionalViewPage) child;
                 //get the child's swipe direction
                 String pageSwipeDirection = curPage.getPageSwipeDirection();
                 //handle if vertical viewPager
                 if((pageSwipeDirection != null && pageSwipeDirection.equals(swipeVerticalString)) || pagerSwipeDirection.equals(swipeVerticalString)) {
+                    //call for swipe out of bounds events
+                    if (evt.getAction() == MotionEvent.ACTION_MOVE) {
+                        if (touchStartY < y && getCurrentItem() == 0) {
+                            swipeOutBoundsListener.onSwipeOutBoundsAtStart();
+                        } else if (touchStartY > y && getCurrentItem() == getAdapter().getCount() - 1) {
+                            swipeOutBoundsListener.onSwipeOutBoundsAtEnd();
+                        }
+                    }
                     return super.onTouchEvent(swapXY(evt));
                 }
                 else {
+                    //call for swipe out of bounds events
+                    if (evt.getAction() == MotionEvent.ACTION_MOVE) {
+                        if (touchStartX < x && getCurrentItem() == 0) {
+                            swipeOutBoundsListener.onSwipeOutBoundsAtStart();
+                        } else if (touchStartX > x && getCurrentItem() == getAdapter().getCount() - 1) {
+                            swipeOutBoundsListener.onSwipeOutBoundsAtEnd();
+                        }
+                    }
                     return super.onTouchEvent(evt);
                 }
             }
