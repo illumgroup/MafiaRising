@@ -5,11 +5,8 @@ import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 //class for a ViewPager that allows either horizontal or vertical swipes for each page
 //each page can have a set swipe direction attribute or it will use the default swipe direction
@@ -25,6 +22,7 @@ public class BidirectionalViewPager extends ViewPager {
 
     float touchStartX;
     float touchStartY;
+    static int swipeToExitPixelThreshold = 50;
     OnSwipeOutBoundsListener swipeOutBoundsListener;
 
     public BidirectionalViewPager(Context context) {
@@ -132,19 +130,6 @@ public class BidirectionalViewPager extends ViewPager {
     }
 
     /* maybe not needed?
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent evt) {
-        if(pagerSwipeDirection.equals(swipeVerticalString)) {
-            boolean intercepted = super.onInterceptTouchEvent(swapXY(evt));
-            swapXY(evt);
-            return intercepted;
-        }
-        else {
-            return super.onInterceptTouchEvent(evt);
-        }
-    }*/
-
-    /* maybe not needed?
     public boolean onTouchChildEvent(MotionEvent evt, View view) {
         BidirectionalViewPage p = (BidirectionalViewPage) view;
 
@@ -168,6 +153,63 @@ public class BidirectionalViewPager extends ViewPager {
         swipeOutBoundsListener = listener;
     }
 
+    //handle intercepted touch events
+    //determine which page was touched, get its swipe direction and allow vertical swipe if needed
+    // add listener for swiping at start and end
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent evt) {
+        float x = evt.getX();
+        float y = evt.getY();
+        //figure out which child was touched
+        int numChildren = getChildCount();
+        for(int i=0;i<numChildren;++i) {
+            View child = getChildAt(i);
+            Rect childBounds = new Rect();
+            child.getGlobalVisibleRect(childBounds);
+            //this child was touched
+            if(childBounds.contains(Math.round(x),Math.round(y))) {
+                //save touch coordinates
+                if (evt.getAction() == MotionEvent.ACTION_DOWN) {
+                    //Log.i("INFO","saving touch start coord");
+                    touchStartX = x;
+                    touchStartY = y;
+                }
+                BidirectionalViewPage curPage = (BidirectionalViewPage) child;
+                //get the child's swipe direction
+                String pageSwipeDirection = curPage.getPageSwipeDirection();
+                //handle if vertical viewPager
+                if((pageSwipeDirection != null && pageSwipeDirection.equals(swipeVerticalString)) || pagerSwipeDirection.equals(swipeVerticalString)) {
+                    //call for swipe out of bounds events
+                    if (evt.getAction() == MotionEvent.ACTION_MOVE) {
+                        if (touchStartY < y && Math.abs(touchStartY - y) > swipeToExitPixelThreshold && getCurrentItem() == 0) {
+                            swipeOutBoundsListener.onSwipeOutBoundsAtStart();
+                        } else if (touchStartY > y && Math.abs(touchStartY - y) > swipeToExitPixelThreshold && getCurrentItem() == getAdapter().getCount() - 1) {
+                            swipeOutBoundsListener.onSwipeOutBoundsAtEnd();
+                        }
+                    }
+                    boolean intercepted = super.onInterceptTouchEvent(swapXY(evt));
+                    swapXY(evt); //unswap so children get non-swapped coordinates
+                    return intercepted;
+                }
+                else {
+                    //call for swipe out of bounds events
+                    if (evt.getAction() == MotionEvent.ACTION_MOVE) {
+                        //Log.i("INFO", "start: "+Integer.toString(Math.round(touchStartX))+" end: "+Integer.toString(Math.round(x))+" diff: "+Integer.toString(Math.round(Math.abs(touchStartX - x))));
+                        if (touchStartX < x && Math.abs(touchStartX - x) > swipeToExitPixelThreshold && getCurrentItem() == 0) {
+                            //Log.i("INFO", "exit at start "+Integer.toString(Math.abs(Math.round(touchStartX - x)))+">"+Integer.toString(Math.round(swipeToExitPixelThreshold)));
+                            swipeOutBoundsListener.onSwipeOutBoundsAtStart();
+                        } else if (touchStartX > x && Math.abs(touchStartX - x) > swipeToExitPixelThreshold && getCurrentItem() == getAdapter().getCount() - 1) {
+                            swipeOutBoundsListener.onSwipeOutBoundsAtEnd();
+                            //Log.i("INFO", "exit at end "+Integer.toString(Math.abs(Math.round(touchStartX - x)))+">"+Integer.toString(Math.round(swipeToExitPixelThreshold)));
+                        }
+                    }
+                    return super.onInterceptTouchEvent(evt);
+                }
+            }
+        }
+        return super.onInterceptTouchEvent(evt);
+    }
+
     //handle touch event
     //determine which page was touched, get its swipe direction and allow vertical swipe if needed
     // add listener for swiping at start and end
@@ -183,35 +225,14 @@ public class BidirectionalViewPager extends ViewPager {
             child.getGlobalVisibleRect(childBounds);
             //this child was touched
             if(childBounds.contains(Math.round(x),Math.round(y))) {
-                //save touch coordinates
-                if (evt.getAction() == MotionEvent.ACTION_DOWN) {
-                    touchStartX = x;
-                    touchStartY = y;
-                }
                 BidirectionalViewPage curPage = (BidirectionalViewPage) child;
                 //get the child's swipe direction
                 String pageSwipeDirection = curPage.getPageSwipeDirection();
                 //handle if vertical viewPager
                 if((pageSwipeDirection != null && pageSwipeDirection.equals(swipeVerticalString)) || pagerSwipeDirection.equals(swipeVerticalString)) {
-                    //call for swipe out of bounds events
-                    if (evt.getAction() == MotionEvent.ACTION_MOVE) {
-                        if (touchStartY < y && getCurrentItem() == 0) {
-                            swipeOutBoundsListener.onSwipeOutBoundsAtStart();
-                        } else if (touchStartY > y && getCurrentItem() == getAdapter().getCount() - 1) {
-                            swipeOutBoundsListener.onSwipeOutBoundsAtEnd();
-                        }
-                    }
                     return super.onTouchEvent(swapXY(evt));
                 }
                 else {
-                    //call for swipe out of bounds events
-                    if (evt.getAction() == MotionEvent.ACTION_MOVE) {
-                        if (touchStartX < x && getCurrentItem() == 0) {
-                            swipeOutBoundsListener.onSwipeOutBoundsAtStart();
-                        } else if (touchStartX > x && getCurrentItem() == getAdapter().getCount() - 1) {
-                            swipeOutBoundsListener.onSwipeOutBoundsAtEnd();
-                        }
-                    }
                     return super.onTouchEvent(evt);
                 }
             }

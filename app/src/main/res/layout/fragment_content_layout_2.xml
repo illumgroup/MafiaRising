@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:weightSum="2"
-    android:id="@+id/content_layout">
+    android:fillViewport="true">
 
-    <com.illum.MafiaRising.CustomFontTextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:gravity="center_vertical"
-        android:text=""
-        app:font=""
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:id="@+id/text_1"/>
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:id="@+id/content_layout">
 
-    <com.illum.MafiaRising.CustomFontTextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:gravity="center_vertical"
-        android:text=""
-        app:font=""
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        android:id="@+id/text_2"/>
+        <com.illum.MafiaRising.CustomFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:gravity="center_vertical"
+            android:text=""
+            app:font=""
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:id="@+id/text_1"/>
 
-</LinearLayout>
+        <com.illum.MafiaRising.CustomFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:gravity="center_vertical"
+            android:text=""
+            app:font=""
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:id="@+id/text_2"/>
+
+    </LinearLayout>
+
+</ScrollView>
