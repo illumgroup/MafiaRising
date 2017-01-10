@@ -15,6 +15,9 @@ public class GameReady extends BaseActivity {
         init();
     }
 
+    //backMainMenu is in BaseActivity
+    //called when Home button is pressed
+
     //called when user hits next button
     //starts game, sets checkpoint (finishes previous screens up to main menu)
     public void onClickNext(View view) {

@@ -12,8 +12,18 @@
     <string name="mm_back_toast">Press the back button again to close the application.</string>
 
     <string name="setup_player_count_title">PLAYERS</string>
+
+    <string name="setup_player_count_info_title">INFO</string>
+    <string name="setup_player_count_info_players_title">Players</string>
+    <string name="setup_player_count_info_players_text">Set the number of players in your party excluding the moderator (you)</string>
+    <string name="setup_player_count_info_mafiaratio_title">Mafia Ratio</string>
+    <string name="setup_player_count_info_mafiaratio_text">4 Townspeople:1 Mafia</string>
+
     <string name="setup_extra_roles_title">ROLES</string>
+
     <string name="setup_player_cards_title">CARDS</string>
+
+    <string name="gameready_text">Are you ready?</string>
 
     <string name="rules_title">RULES</string>
     <string name="rules_btn1">TUTORIAL</string>
@@ -21,28 +31,28 @@
     <string name="rules_btn3">ROLES</string>
 
     <string-array name="script_slide_titles">
-        <item>INTRO</item>
-        <item>STORY</item>
-        <item>EXAMPLE</item>
-        <item>NIGHT</item>
-        <item>EXAMPLE</item>
-        <item>SELECTION 1</item>
-        <item>EXAMPLE</item>
-        <item>SELECTION 2</item>
-        <item>EXAMPLE</item>
-        <item>SELECTION 3</item>
-        <item>DAY</item>
-        <item>EXAMPLE</item>
-        <item>RECAP</item>
-        <item>EXAMPLE</item>
-        <item>TRIBUNAL</item>
-        <item>EXAMPLE</item>
-        <item>RECAP AGAIN</item>
-        <item>EXAMPLE</item>
-        <item>REPEAT</item>
-        <item>END</item>
-        <item>EXAMPLE</item>
-        <item>THE END</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:INTRO</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:STORY</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:NIGHT</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:SELECTION 1</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:SELECTION 2</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:SELECTION 3</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:DAY</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:RECAP</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:TRIBUNAL</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:RECAP AGAIN</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:REPEAT</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:END</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:EXAMPLE</item>
+        <item>bkgdColor:black`|textSize:56`|textFont:Manteka`|textColor:white`|textGravity:center_vertical`|text:THE END</item>
     </string-array>
     <string name="script_slide_swipedir_default">@string/swipe_direction_horizontal</string>
     <string-array name="script_slide_swipedir">
@@ -72,28 +82,27 @@
         <item>layout:1`|layoutColor:white`|text1Size:30`|text1Font:Manteka`|text1Color:black`|text1Gravity:center_vertical`|text1:THANKS FOR PLAYING!!!</item>
     </string-array>
 
-    <!--TODO: make slide titles dynamically generated as well-->
     <string-array name="tutorial_slide_titles">
-        <item>INTRO</item>
-        <item>CONCEPT</item>
-        <item>GOAL</item>
-        <item>SET-UP</item>
-        <item>SET-UP 1</item>
-        <item>SET-UP 2</item>
-        <item>SET-UP 3</item>
-        <item>STORY</item>
-        <item>NIGHT</item>
-        <item>NIGHT 1</item>
-        <item>NIGHT 2</item>
-        <item>TIP</item>
-        <item>NIGHT 3</item>
-        <item>DAY</item>
-        <item>DAY 1</item>
-        <item>DAY 2</item>
-        <item>END</item>
-        <item>REPEAT</item>
-        <item>GOOD LUCK!</item>
-        <item>TIP</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:INTRO</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:CONCEPT</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:GOAL</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:SET-UP</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:SET-UP 1</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:SET-UP 2</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:SET-UP 3</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:STORY</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:NIGHT</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:NIGHT 1</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:NIGHT 2</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:TIP</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:NIGHT 3</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:DAY</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:DAY 1</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:DAY 2</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:END</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:REPEAT</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:GOOD LUCK!</item>
+        <item>bkgdColor:white`|textSize:56`|textFont:Manteka`|textColor:black`|textGravity:center_vertical`|text:TIP</item>
     </string-array>
     <string name="tutorial_slide_swipedir_default">@string/swipe_direction_horizontal</string>
     <string-array name="tutorial_slide_swipedir">
@@ -131,7 +140,6 @@
     <string name="role_name_mafia">MAFIA</string>
     <string name="role_name_moderator">MODERATOR</string>
     <string name="role_name_police">POLICE</string>
-    <string name="role_name_vigilante">VIGILANTE</string>
 
     <string name="role_stance_pro">PRO-TOWN</string>
     <string name="role_stance_anti">ANTI-TOWN</string>
@@ -178,6 +186,14 @@
         <item>@string/role_use_flag_unused</item>
         <item>@string/role_use_flag_extra</item>
     </string-array>
+    <string-array name="roles_max_ingame">
+        <item>-1</item>
+        <item>1</item>
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
     <string name="role_use_flag_normal">0</string>
     <string name="role_use_flag_extra">1</string>
     <string name="role_use_flag_unused">2</string>

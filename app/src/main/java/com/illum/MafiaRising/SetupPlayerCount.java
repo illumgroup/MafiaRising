@@ -52,4 +52,10 @@ public class SetupPlayerCount extends BaseActivity {
         startActivityForResult(intent, BaseActivity.REQUEST_EXIT_CODE);
     }
 
+    //start player count info activity on info button tap
+    public void activitySetupPlayersInfo(View view) {
+        Intent intent = new Intent(this, SetupPlayerCountInfo.class);
+        startActivity(intent);
+    }
+
 }

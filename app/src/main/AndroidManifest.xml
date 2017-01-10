@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SetupPlayerCount" />
+        <activity android:name=".SetupPlayerCountInfo" />
         <activity android:name=".SetupExtraRoles" />
         <activity android:name=".SetupPlayerCards" />
         <activity android:name=".GameReady" />

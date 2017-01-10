@@ -28,7 +28,7 @@ public class PauseRoles extends BaseActivity {
 
     //gets the list of players and roles for current game session
     private List<PauseRolesItem> getRolesList() {
-        List<PauseRolesItem> results = new ArrayList<PauseRolesItem>();
+        List<PauseRolesItem> results = new ArrayList<>();
         //dummy list for now
         results.add(new PauseRolesItem("Citizen",R.drawable.placeholderbox));
         results.add(new PauseRolesItem("Mafia",R.drawable.placeholderbox));

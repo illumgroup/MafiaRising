@@ -42,7 +42,7 @@ class PauseRolesListAdapter extends ArrayAdapter<PauseRolesItem> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         //recyclable view has not been used yet, inflate it, store ViewHolder as a tag
         if(convertView == null) {
-            viewToUse = inflater.inflate(R.layout.fragment_pause_roles_item, parent);
+            viewToUse = inflater.inflate(R.layout.fragment_pause_roles_item, parent, false);
 
             holder = new ViewHolder();
             holder.roleImage = (ImageView) viewToUse.findViewById(R.id.role_img);
@@ -61,5 +61,4 @@ class PauseRolesListAdapter extends ArrayAdapter<PauseRolesItem> {
         }
         return viewToUse;
     }
-
 }
