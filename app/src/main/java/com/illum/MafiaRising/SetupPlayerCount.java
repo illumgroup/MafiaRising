@@ -33,6 +33,10 @@ public class SetupPlayerCount extends BaseActivity {
         NumberPicker numberPicker = (NumberPicker) findViewById(R.id.numPlayersPicker);
         numberPicker.setMinValue(Integer.parseInt(sharedPrefsPlayerCountMin));
         numberPicker.setMaxValue(Integer.parseInt(sharedPrefsPlayerCountMax));
+
+        SharedPreferences.Editor sharedPrefsEditor = sharedPrefs.edit();
+        sharedPrefsEditor.putInt(sharedPrefsPlayerCountkey, Integer.valueOf(sharedPrefsPlayerCountMin));
+        sharedPrefsEditor.apply();
         //update sharedPref when changed
         //TODO: perhaps change this so it only updates sharedPref once at end when number of players is final
         numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
