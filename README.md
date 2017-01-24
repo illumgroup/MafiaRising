@@ -1,9 +1,7 @@
 # MafiaRising-Android
 
-Illum:
+Illum Development: MafiaRising Official Repo
 
-Mafia Card Game for Android Repository
-Written in Java
+Mafia Card Game written for Android in Java.
 
-Description:
-  TODO
+Description: TODO
