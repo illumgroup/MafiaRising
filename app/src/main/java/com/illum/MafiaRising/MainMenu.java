@@ -35,6 +35,7 @@ public class MainMenu extends BaseActivity {
                     PERMISSION_ALL
             );
         }
+
         init();
 
         //give every view a fadein animation with delay offset based on child position

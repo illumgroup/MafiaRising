@@ -36,7 +36,8 @@ public class SetupPlayerCards extends BaseActivity {
     SharedPreferences sharedPrefs;
     private int playerIndex;
     private int playerCount;
-    private ImageView imageView;
+    private com.illum.MafiaRising.CustomFontTextView playerCounter;
+    private com.github.siyamed.shapeimageview.mask.PorterShapeImageView imageView;
     private int targetW, targetH;
     private View btnNext;
     private Camera camera;
@@ -49,7 +50,7 @@ public class SetupPlayerCards extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_player_cards);
 
-        imageView = (ImageView) findViewById(R.id.role_img);
+        imageView = (com.github.siyamed.shapeimageview.mask.PorterShapeImageView) findViewById(R.id.test);
 
         init();
 
@@ -73,18 +74,27 @@ public class SetupPlayerCards extends BaseActivity {
         //hide next btn programmatically because it is an included layout
         btnNext = findViewById(R.id.next_button);
         btnNext.setVisibility(View.INVISIBLE);
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
 
+        if (storageDir != null) {
+            for(File file: storageDir.listFiles())
+                if (!file.isDirectory())
+                    file.delete();
+        }
+
+        playerCounter = (com.illum.MafiaRising.CustomFontTextView) findViewById(R.id.text_player_tally);
         final ImageView cameraButton = (ImageView) findViewById(R.id.btn_camera);
 
+        playerCounter.setText((playerIndex+1)+"/"+playerCount);
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(playerIndex < playerCount) {
-                    dispatchTakePictureIntent();
-                    playerIndex++;
-                }else {
+                dispatchTakePictureIntent();
+                playerIndex++;
+                if(playerIndex >= playerCount) {
                     cameraButton.setOnClickListener(null);
-                    btnNext.setVisibility((View.VISIBLE));
+                }else {
+                    playerCounter.setText((playerIndex + 1) + "/" + playerCount);
                 }
             }
         });
@@ -92,8 +102,7 @@ public class SetupPlayerCards extends BaseActivity {
 
         //TODO: delete previous images if still present (in case game crashed last time)
         //TODO: check if from new game - reset playerIndex in shared preferences in onCreate
-        //TODO: on btn press take picture
-        //TODO: after take image, replace placeholder with image or set image as src and placeholder as bkgd and set right arrow to visible and set camera btn to hide
+        //TODO: refine image replacement
     }
 
     private File createImageFile() throws IOException {
@@ -163,6 +172,10 @@ public class SetupPlayerCards extends BaseActivity {
 
         Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
         imageView.setImageBitmap(bitmap);
+
+        if(playerIndex >= playerCount) {
+            btnNext.setVisibility((View.VISIBLE));
+        }
     }
 
     @Override
