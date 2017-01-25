@@ -1,10 +1,14 @@
 package com.illum.MafiaRising;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -23,18 +27,8 @@ public class MainMenu extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        verifyStoragePermissions(this);
 
-        int PERMISSION_ALL = 1;
-        String[] PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                    this,
-                    PERMISSIONS,
-                    PERMISSION_ALL
-            );
-        }
 
         init();
 
@@ -54,8 +48,25 @@ public class MainMenu extends BaseActivity {
     public void startGame(View view)
     {
         backButtonCount = 0;
-        Intent intent = new Intent(this, SetupPlayerCount.class);
-        startActivity(intent);
+        System.out.println("Test");
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.dialog_title)
+                .setMessage(R.string.dialog_message)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(getApplicationContext(), SetupPlayerCount.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .show();
+
+
         /* Notes 1
         Starting a new game should check to see if there is a game in progress,
         if so, confirm the user wants to start a new game.
@@ -128,6 +139,60 @@ public class MainMenu extends BaseActivity {
 
     }
     */
+
+    //permissions
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static final int REQUEST_CAMERA = 2;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+    };
+    private static String[] PERMISSIONS_CAMERA = {
+            Manifest.permission.CAMERA
+    };
+
+    public static void verifyStoragePermissions(Activity activity) {
+        // Check if we have read or write permission
+        int writePermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int cameraPermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
+
+        if (writePermission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+
+        if(cameraPermission != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_CAMERA,
+                    REQUEST_CAMERA
+            );
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_EXTERNAL_STORAGE: {
+                // If request is cancelled, the result arrays are empty.
+                if(!(grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    finishAffinity();
+
+                }
+            } break;
+            case REQUEST_CAMERA: {
+                if(!(grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    finishAffinity();
+                }
+            }
+        }
+    }
 
     //override the back button to have confirmation toast, dismisses toast if exiting app
     @Override

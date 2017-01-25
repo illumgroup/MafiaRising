@@ -11,6 +11,11 @@
     <string name="mm_btn4">RULES</string>
     <string name="mm_back_toast">Press the back button again to close the application.</string>
 
+    <string name="ok">Yes</string>
+    <string name="cancel">No</string>
+    <string name="dialog_message">Any previously saved game will be deleted</string>
+    <string name="dialog_title">New Game?</string>
+
     <string name="setup_player_count_title">PLAYERS</string>
 
     <string name="setup_player_count_info_title">INFO</string>
