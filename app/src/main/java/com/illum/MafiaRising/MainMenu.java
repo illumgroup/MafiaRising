@@ -81,7 +81,7 @@ public class MainMenu extends BaseActivity {
     public void continueGame(View view)
     {
         verifyStoragePermissions(this);
-        
+
         if(permissionsGranted) {
             backButtonCount = 0;
         }
