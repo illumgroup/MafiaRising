@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Camera;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,6 +18,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -26,6 +28,8 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -43,6 +47,10 @@ public class SetupPlayerCards extends BaseActivity {
     private Camera camera;
     private String mCurrentPhotoPath;
     private static final int REQUEST_TAKE_PHOTO = 1;
+    private String[] roles;
+    private int ratio;
+    private int[] mafiaplaces;
+    private String[] assignments;
 
 
     @Override
@@ -66,6 +74,8 @@ public class SetupPlayerCards extends BaseActivity {
         //get the extra roles boolean string set, defaulted to empty set
         String sharedPrefsSetupExtraRolesKey = getString(R.string.app_package) + "." + getString(R.string.game_session_extra_roles_key);
         Set<String> selectedExtraRoles = sharedPrefs.getStringSet(sharedPrefsSetupExtraRolesKey, new HashSet<String>());
+
+        setMafia();
 
         //get loop index
         // default to 0 so it is not dependent on previous screen to start the loop
@@ -146,9 +156,15 @@ public class SetupPlayerCards extends BaseActivity {
     }
 
     private void setPic() {
-        /*// Get the dimensions of the View
-        //int targetW = imageView.getMeasuredWidth();
-        //int targetH = imageView.getMeasuredHeight();
+        // Get the dimensions of the View
+        /*int targetW = imageView.getMeasuredWidth();
+        int targetH = imageView.getMeasuredHeight();*/
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int targetW = size.x/2;
+        int targetH = size.y/2;
+
 
         if(imageView == null) {
             System.out.println("ImageView Null");
@@ -170,12 +186,35 @@ public class SetupPlayerCards extends BaseActivity {
         bmOptions.inSampleSize = scaleFactor;
         //bmOptions.inPurgeable = true;*/
 
-        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
+        Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
         imageView.setImageBitmap(bitmap);
 
         if(playerIndex >= playerCount) {
             btnNext.setVisibility((View.VISIBLE));
         }
+    }
+
+    private void setMafia() {
+        assignments=new String[playerCount];
+
+        ratio=playerCount/4;
+        mafiaplaces=new int[ratio];
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i=1; i<playerCount; i++) {
+            list.add(i);
+        }
+        Collections.shuffle(list);
+        for (int i=0; i<ratio; i++) {
+            mafiaplaces[i]=list.get(i);
+        }
+        for(int i=0;i<playerCount;i++) {
+            assignments[i]="Citizen";
+            for(int mafiasel=0;mafiasel<ratio;mafiasel++) {
+                if(mafiaplaces[mafiasel]==i)
+                    assignments[i]="Mafia";
+            }
+        }
+
     }
 
     @Override
@@ -196,6 +235,9 @@ public class SetupPlayerCards extends BaseActivity {
         // clear previous player card setup screens
         if(playerIndex >= playerCount-1) {
             Intent intent = new Intent(this, GameReady.class);
+            Bundle b = new Bundle();
+            b.putStringArray("RoleA", assignments);
+            intent.putExtras(b);
             startActivityForResult(intent, BaseActivity.REQUEST_EXIT_CODE);
 
             clearPrevious();

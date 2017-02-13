@@ -1,2 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string-array name="roles">
+        <item>Mafia</item>
+        <item>Police</item>
+        <item>Citizen</item>
+    </string-array>
+
+    <array name="images">
+        <item>Player1</item>
+        <item>Player2</item>
+        <item>Player3</item>
+        <item>Player4</item>
+        <item>Player5</item>
+        <item>Player6</item>
+        <item>Player7</item>
+        <item>Player8</item>
+        <item>Player9</item>
+        <item>Player10</item>
+        <item>Player11</item>
+        <item>Player12</item>
+    </array>
+
+</resources>

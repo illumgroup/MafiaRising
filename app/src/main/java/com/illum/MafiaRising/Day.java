@@ -54,17 +54,23 @@ public class Day extends Fragment {
 
         super.onViewCreated( view, savedInstanceState );
         final RelativeLayout preview = (RelativeLayout) getView().findViewById(R.id.day);
+        preview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonPressed();
+            }
+        });
         preview.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 preview.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 TextView one=(TextView) getView().findViewById(R.id.daynumber);
-                one.setText(day);
+                one.setText(String.valueOf(day));
             }
         });
     }
 
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed() {
         if (mListener != null) {
             mListener.nextDay();
         }

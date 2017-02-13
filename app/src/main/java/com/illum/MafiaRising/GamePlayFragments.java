@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,6 +16,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -197,14 +199,51 @@ public class GamePlayFragments extends Fragment {
     }
 
     private Bitmap setImage(int playernum){
-        File sdCard = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        String imageFileName = "Player"+playernum;
+        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = new File(storageDir+"/"+imageFileName+".jpg");
+
+        /*File sdCard = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File directory=new File(sdCard.getAbsolutePath()+"/MyCameraApp");
-        File file=new File(directory, "Player"+playernum+".jpg");
-        Bitmap bitmap=rotateImage(file.getAbsolutePath());
-        return bitmap;
+        File file=new File(directory, "Player"+playernum+".jpg");*/
+        return setPic(image.getAbsolutePath());
     }
 
-    private Bitmap rotateImage(String file){
+    private Bitmap setPic(String mCurrentPhotoPath) {
+        // Get the dimensions of the View
+        /*int targetW = imageView.getMeasuredWidth();
+        int targetH = imageView.getMeasuredHeight();*/
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int targetW = size.x/4;
+        int targetH = size.y/4;
+
+
+        /*if(imageView == null) {
+            System.out.println("ImageView Null");
+        }
+        System.out.println(targetW + " " + targetH);*/
+
+        // Get the dimensions of the bitmap
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        // Determine how much to scale down the image
+        int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+
+        // Decode the image file into a Bitmap sized to fill the View
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        //bmOptions.inPurgeable = true;*/
+
+        return BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+    }
+
+    /*private Bitmap rotateImage(String file){
         BitmapFactory.Options bounds = new BitmapFactory.Options();
         bounds.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(file, bounds);
@@ -234,7 +273,7 @@ public class GamePlayFragments extends Fragment {
         Bitmap rotatedBitmap = Bitmap.createBitmap(bm, 0, 0, bounds.outWidth, bounds.outHeight, matrix, true);
 
         return rotatedBitmap;
-    }
+    }*/
 
     @Override
     public void onDetach() {

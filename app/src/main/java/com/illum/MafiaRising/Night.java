@@ -45,17 +45,23 @@ public class Night extends Fragment {
 
         super.onViewCreated( view, savedInstanceState );
         final RelativeLayout preview = (RelativeLayout) getView().findViewById(R.id.night);
+        preview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonPressed();
+            }
+        });
         preview.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 preview.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 TextView one=(TextView) getView().findViewById(R.id.nightnumber);
-                one.setText(night);
+                one.setText(String.valueOf(night));
             }
         });
     }
 
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed() {
         if (mListener != null) {
             mListener.nextNight();
         }
