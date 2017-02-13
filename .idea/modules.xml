@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/MafiaRising-Android.iml" filepath="$PROJECT_DIR$/MafiaRising-Android.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Deceived.iml" filepath="$PROJECT_DIR$/Deceived.iml" />
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

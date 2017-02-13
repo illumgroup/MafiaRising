@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/game_layout"
+<<<<<<< HEAD
     tools:context=".GamePlay">
+=======
+    tools:context="com.simplex.simplelight.deceived.GamePlay">
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
 
 </FrameLayout>

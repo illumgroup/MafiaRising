@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.illum.MafiaRising.AssignPlayer">
+    tools:context="com.simplex.simplelight.deceived.AssignPlayer">
 
     <RelativeLayout
         android:orientation="vertical"
@@ -43,6 +43,6 @@
             android:scaleY=".5"
             android:id="@+id/redo"
             android:layout_gravity="center"
-            android:src="@drawable/btn_redo"/>
+            android:src="@drawable/redo"/>
     </RelativeLayout>
 </android.support.percent.PercentFrameLayout>

@@ -7,6 +7,7 @@
     </string-array>
 
     <array name="images">
+<<<<<<< HEAD
         <item>Player1</item>
         <item>Player2</item>
         <item>Player3</item>
@@ -19,6 +20,20 @@
         <item>Player10</item>
         <item>Player11</item>
         <item>Player12</item>
+=======
+        <item>@drawable/cereal_guy</item>
+        <item>@drawable/f_yeah</item>
+        <item>@drawable/forever_alone</item>
+        <item>@drawable/freddie_mercury</item>
+        <item>@drawable/lol_guy</item>
+        <item>@drawable/neil_degrasse_tyson</item>
+        <item>@drawable/oh_crap</item>
+        <item>@drawable/okay</item>
+        <item>@drawable/rage_guy</item>
+        <item>@drawable/troll_face</item>
+        <item>@drawable/y_u_no_guy</item>
+        <item>@drawable/yao_ming</item>
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
     </array>
 
 </resources>

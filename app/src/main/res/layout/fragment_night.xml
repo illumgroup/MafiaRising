@@ -4,7 +4,11 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:id="@+id/night"
+<<<<<<< HEAD
     tools:context=".Night">
+=======
+    tools:context="com.simplex.simplelight.deceived.Night">
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
 
     <TextView
         android:layout_width="wrap_content"
