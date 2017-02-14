@@ -180,14 +180,14 @@ public class MainMenu extends BaseActivity {
             case REQUEST_EXTERNAL_STORAGE: {
                 // If request is cancelled, the result arrays are empty.
                 if(!(grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                        || grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     finishAffinity();
 
                 }
             } break;
             case REQUEST_CAMERA: {
                 if(!(grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                        || grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     finishAffinity();
                 }
             }

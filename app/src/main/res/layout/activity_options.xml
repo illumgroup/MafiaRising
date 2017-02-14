@@ -62,7 +62,7 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/option1"
+                android:id="@+id/option_section_1"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -78,7 +78,7 @@
                     android:layout_marginTop="20dp"/>
 
                 <RelativeLayout
-                    android:id="@+id/option2"
+                    android:id="@+id/option_1_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp">
@@ -105,7 +105,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/option3"
+                    android:id="@+id/option_1_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp">
@@ -134,7 +134,7 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:id="@+id/option4"
+                android:id="@+id/option_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
@@ -165,7 +165,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/option5"
+                android:id="@+id/option_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
