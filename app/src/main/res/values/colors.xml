@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="colorPrimary">@color/white</color>
     <color name="colorPrimaryDark">@color/black</color>
     <color name="colorAccent">@color/red</color>
@@ -8,4 +9,10 @@
     <color name="white">#FFFFFF</color>
     <color name="grey">#555555</color>
     <color name="transparent">#00000000</color>
+=======
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
+    <color name="blue_grey_800_50p">#8037474F</color>
 </resources>

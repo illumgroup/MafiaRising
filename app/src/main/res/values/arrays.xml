@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="roles">
+        <item>Mafia</item>
+        <item>Police</item>
+        <item>Citizen</item>
+    </string-array>
+
+    <array name="images">
+<<<<<<< HEAD
+        <item>Player1</item>
+        <item>Player2</item>
+        <item>Player3</item>
+        <item>Player4</item>
+        <item>Player5</item>
+        <item>Player6</item>
+        <item>Player7</item>
+        <item>Player8</item>
+        <item>Player9</item>
+        <item>Player10</item>
+        <item>Player11</item>
+        <item>Player12</item>
+=======
+        <item>@drawable/cereal_guy</item>
+        <item>@drawable/f_yeah</item>
+        <item>@drawable/forever_alone</item>
+        <item>@drawable/freddie_mercury</item>
+        <item>@drawable/lol_guy</item>
+        <item>@drawable/neil_degrasse_tyson</item>
+        <item>@drawable/oh_crap</item>
+        <item>@drawable/okay</item>
+        <item>@drawable/rage_guy</item>
+        <item>@drawable/troll_face</item>
+        <item>@drawable/y_u_no_guy</item>
+        <item>@drawable/yao_ming</item>
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
+    </array>
+
+</resources>

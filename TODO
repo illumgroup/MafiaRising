@@ -1,4 +1,14 @@
 TODO Concepts Discussion:
+1) 5 min 20 max
+2) Work on main loop
+3) Script and tutorial can only swipe left and right
+4) To exit script and tutorial 
+5) Music not yet - get music team to make drums and stuff
+6) Credit screen maybe
+7) Voice not yet
+8) Portrait only
+9) Single save
+
 
 TODO Programming Discussion:
 **Sound Implementation** (background service)
@@ -6,3 +16,4 @@ TODO Programming Discussion:
 2) Restrict to portrait
 3) How players eliminated?
 4) Picture folder - keep or discard states
+5) Permissions trigger on new game

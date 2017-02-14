@@ -1,5 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.illum.MafiaRising">
+    package="com.simplex.simplelight.deceived">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -10,11 +15,13 @@
 
     <application
         android:allowBackup="true"
+        android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -29,11 +36,16 @@
         <activity android:name=".MainMenu"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
+=======
+        <activity android:name=".MainActivity">
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".SetupPlayerCount" />
         <activity android:name=".SetupPlayerCountInfo" />
         <activity android:name=".SetupExtraRoles" />
@@ -63,6 +75,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/ThemeFullscreen" />
 
+=======
+        <activity android:name=".MainMenu" />
+        <activity android:name=".Settings" />
+        <activity android:name=".HowToPlay" />
+        <activity android:name=".GamePlay" />
+        <activity android:name=".Players_Setup" />
+        <activity android:name=".CameraCards"></activity>
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
     </application>
 
 </manifest>
