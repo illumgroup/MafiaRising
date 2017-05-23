@@ -7,13 +7,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
+
+import com.master.permissionhelper.PermissionHelper;
+
+import java.util.Arrays;
+import java.util.Set;
 
 //shown after splash screen, launcher-type activity
 public class MainMenu extends BaseActivity {
@@ -21,6 +28,7 @@ public class MainMenu extends BaseActivity {
     //keeps track of times back button was hit, should be cleared on any menu button tap
     private static int backButtonCount = 0;
     private boolean permissionsGranted;
+    private PermissionHelper permissionHelper;
     //holds toast so it can be dismissed
     Toast toastExit;
 
@@ -28,8 +36,8 @@ public class MainMenu extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        permissionsGranted = true;
-
+        permissionsGranted = false;
+        verifyStoragePermissions();
 
         init();
 
@@ -48,7 +56,6 @@ public class MainMenu extends BaseActivity {
     //starts the game, unfinished
     public void startGame(View view)
     {
-        verifyStoragePermissions(this);
 
         if(permissionsGranted) {
             backButtonCount = 0;
@@ -80,7 +87,6 @@ public class MainMenu extends BaseActivity {
     //continues previous game session, STUB
     public void continueGame(View view)
     {
-        verifyStoragePermissions(this);
 
         if(permissionsGranted) {
             backButtonCount = 0;
@@ -155,36 +161,11 @@ public class MainMenu extends BaseActivity {
             Manifest.permission.CAMERA
     };
 
-    private void verifyStoragePermissions(Activity activity) {
+    private void verifyStoragePermissions() {
         // Check if we have read or write permission
-        int writePermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int cameraPermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
 
-        if (writePermission != PackageManager.PERMISSION_GRANTED || cameraPermission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS,
-                    REQUEST_EXTERNAL_STORAGE
-            );
-        }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_EXTERNAL_STORAGE: {
-                // If request is cancelled, the result arrays are empty.
-                if(!(grantResults.length > 0
-                        || grantResults[0] == PackageManager.PERMISSION_DENIED || grantResults[1] == PackageManager.PERMISSION_DENIED)) {
-                    //finishAffinity();
-                    permissionsGranted = false;
-
-                }
-            }
-        }
-    }
 
     //override the back button to have confirmation toast, dismisses toast if exiting app
     @Override
