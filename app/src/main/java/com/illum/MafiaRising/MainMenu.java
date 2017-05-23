@@ -56,9 +56,13 @@ public class MainMenu extends BaseActivity {
     //starts the game, unfinished
     public void startGame(View view)
     {
+<<<<<<< HEAD
+=======
+        backButtonCount = 0;
+        verifyStoragePermissions(this);
+>>>>>>> 5a0372e75adcab075c5b13259cd2549ad625dbf4
 
         if(permissionsGranted) {
-            backButtonCount = 0;
             System.out.println("Test");
 
             new AlertDialog.Builder(this)
@@ -87,9 +91,13 @@ public class MainMenu extends BaseActivity {
     //continues previous game session, STUB
     public void continueGame(View view)
     {
+<<<<<<< HEAD
+=======
+        backButtonCount = 0;
+        verifyStoragePermissions(this);
+>>>>>>> 5a0372e75adcab075c5b13259cd2549ad625dbf4
 
         if(permissionsGranted) {
-            backButtonCount = 0;
         }
         /* Notes 3
         Should continueGame be auto-hidden when there is no previous game

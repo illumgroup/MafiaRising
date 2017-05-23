@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Mafia Rising</string>
-    <string name="app_package">com.illum.MafiaRising</string>
+    <string name="app_name">Deceived</string>
 
+<<<<<<< HEAD
     <string name="font_name_kefa">Kefa</string>
     <string name="font_name_manteka">Manteka</string>
 
@@ -240,4 +240,8 @@
     <string name="options_pref_vol_bkgd_default">50</string>
 
     <string name="hint_taptocontinue">Tap anywhere to continue</string>
+=======
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+>>>>>>> 96695e561c0ffd5c97b4dc468da54c26f6cc3edd
 </resources>

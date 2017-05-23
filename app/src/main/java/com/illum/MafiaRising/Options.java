@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -48,6 +49,19 @@ public class Options extends BaseActivity {
             }
         });
 
+        //
+        final View aiDirectionsOpt = findViewById(R.id.option_1_1);
+        aiDirectionsOpt.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    aiDirections.toggle();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         //get story checkbox, set default state and listener that sets sharedPref
         final CheckBox aiStory = (CheckBox) findViewById(R.id.story_checkbox);
         aiStory.setChecked(sharedPrefs.getBoolean(sharedPrefsAiStoryKey,Boolean.parseBoolean(sharedPrefsAiStoryDefault)));
@@ -56,6 +70,19 @@ public class Options extends BaseActivity {
                 SharedPreferences.Editor sharedPrefsEditor = sharedPrefs.edit();
                 sharedPrefsEditor.putBoolean(sharedPrefsAiStoryKey,isChecked);
                 sharedPrefsEditor.apply();
+            }
+        });
+
+        //
+        final View aiStoryOpt = findViewById(R.id.option_1_2);
+        aiStoryOpt.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    aiStory.toggle();
+                    return true;
+                }
+                return false;
             }
         });
 
